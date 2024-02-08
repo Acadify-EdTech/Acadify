@@ -9,21 +9,46 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      
     }
-    h1 {
-      background-color: #f4f4f4;
-      padding: 20px;
-      margin: 0;
-    }
-    footer {
-      background-color: #f4f4f4;
-      padding: 20px;
-      margin: 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
+    header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #ccc;
+}
     .visit-btn{
     display: inline-block;
     text-decoration: none;
@@ -41,6 +66,7 @@
     transition: 1s;
 }
 .heading{
+    
     font-family: Arial, Verdana,Helvetica;
 }
 .heading-content1{
@@ -73,12 +99,29 @@ nav a:hover {
   </style>
 </head>
 <body>
-  <h1>Acadify</h1>
-  <div id="app"></div>
+    <header>
+        <div class="header-content">
+          <h1>Acadify</h1>
+          <nav>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
   <hr>
-  <div class="heading">
-  <h2>The Inception</h2>
-</div>
+  <hr>
+  <hr>
+  <hr>
+  <br>
+
+<section>
+    <div class="heading">
+        <h2>The Inception</h2>
+    </div>
+</section>
 <section class="heading-content1">
 <p>
 At the heart of Acadify lies a vision to transform the landscape of education through the seamless integration of technology and pedagogy. Our products collectively aim to create an ecosystem for educational institutes and enterprises, redefining the way knowledge is imparted and acquired.
@@ -111,6 +154,7 @@ Our mission is clear — to empower educators, students, and institutions with i
         <li><a href="./mission.html">Mission</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
+      
     </nav>
   </footer>
 
