@@ -1,11 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="./assets/js/bundle.js"></script>
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #ccc;
+}
+    .visit-btn{
+    display: inline-block;
+    text-decoration: none;
+    counter-reset: #fff;
+    border: 1px solid #f44336;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.visit-btn:hover{
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
+.heading{
+    
+    font-family: Arial, Verdana,Helvetica;
+}
+.heading-content1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer {
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+  color: #f44336;
+}  
+  </style>
 </head>
 <body>
-    <h1>About us</h1>
+    <header>
+        <div class="header-content">
+          <h1>Acadify</h1>
+          <nav>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+  <hr>
+  <hr>
+  <hr>
+  <hr>
+  <br>
+
+<section>
+    <div class="heading">
+        <h2>The Inception</h2>
+    </div>
+</section>
+<section class="heading-content1">
+<p>
+At the heart of Acadify lies a vision to transform the landscape of education through the seamless integration of technology and pedagogy. Our products collectively aim to create an ecosystem for educational institutes and enterprises, redefining the way knowledge is imparted and acquired.
+
+We are not just developers; we are enthusiasts deeply passionate about education. As much as we thrive on the intricacies of technology, our commitment to enhancing the educational experience is unwavering.
+</p>
+</section>
+<div>
+<quote>Passion for Education, Dedication to Technology</quote>
+</div>
+<section class="mission">
+ <h2>Mission: Empowering Education</h2>
+<p>
+Our mission is clear — to empower educators, students, and institutions with innovative solutions. We strive to build tools that facilitate collaborative learning, adaptive teaching methodologies, and efficient management of educational resources.
+
+  </p>
+  </section>
+    <section class="visit-btn">
+        <a href="">Visit Us To Know More</a>
+</section>
+<br>
+<br>
+
+<hr>
+<footer>
+    <p>&copy; 2024 Acadify. All rights reserved.</p>
+    <nav>
+      <ul>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./mission.html">Mission</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      
+    </nav>
+  </footer>
+
 </body>
 </html>
