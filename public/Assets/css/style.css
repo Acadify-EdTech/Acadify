@@ -1,0 +1,62 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Open%20Sans:wght@400;500;700&display=swap');
+
+:root {
+  --md-ref-typeface-brand: 'Open Sans';
+  --md-ref-typeface-plain: system-ui;
+  font-family: var(--md-ref-typeface-plain);
+}
+
+.header {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically in the center */
+}
+
+.logo {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin: 0 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.signin-button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: #f4f4f4;
+}
+
+.hero-text{
+    text-align: center;
+}
+
+#getstartedbtn{
+    margin-top:10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
