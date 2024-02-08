@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./assets/js/bundle.js"></script>
+  <script src="./assets/js/bundle.js"></script>
+  <script src="./assets/js/navbar.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/pallette/light.css">
   <title>Document</title>
 </head>
+
 <body>
-  <h1>Acadify</h1>
-  <hr>
-  <md-filled-button>Click me</md-filled-button>
-  <md-outlined-button>Back</md-outlined-button>
-  <md-filled-button>Next</md-filled-button>
-  <md-filled-button>ContactUs</md-filled-button>
-  <hr>
+  <div class="header">
+    <h3 class="logo">Acadify</h3>
+    <nav>
+      <ul>
+        <md-outlined-button href="/">Home</md-outlined-button>
+        <md-outlined-button>Products</md-outlined-button>
+        <md-outlined-button>Solutions</md-outlined-button>
+        <md-outlined-button href="/about">About</md-outlined-button>
+        <md-outlined-button>Contact</md-outlined-button>
+        <!-- <md-filled-button class="signin-button">Get started</md-filled-button> -->
+      </ul>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div class="hero-text">
+      <h1 style="font-size: 78px; margin:10px">Learn from the best</h1>
+      <p style="font-size: 24px; margin: 10px;">Get access to the best learning resources and instructors</p>
+      <md-filled-button id="getstartedbtn">Get started</md-filled-button>
+    </div>
+    </div>
 </body>
+
 </html>
