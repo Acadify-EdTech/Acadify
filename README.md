@@ -142,3 +142,8 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## License
 
 This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+
+### Temp
+
+```
+npx rollup -p @rollup/plugin-node-resolve public/assets/js/index.js -o public/assets/js/bundle.js   ```
