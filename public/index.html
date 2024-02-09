@@ -15,7 +15,7 @@
   <div class="header">
     <h3 class="logo">Acadify</h3>
     <nav>
-      <ul>
+      <ul class="links">
         <md-outlined-button href="/">Home</md-outlined-button>
         <md-outlined-button>Products</md-outlined-button>
         <md-outlined-button>Solutions</md-outlined-button>
@@ -23,8 +23,31 @@
         <md-outlined-button>Contact</md-outlined-button>
         <md-filled-button class="signin-button">Get started</md-filled-button>
       </ul>
+      <div class="toggleBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+      </div>
     </nav>
   </div>
+
+  <div class="menuDiv">
+    <li><md-outlined-button href="/" style="margin-top: 10px;">Home</md-outlined-button></li>
+    <li><md-outlined-button>Products</md-outlined-button></li>
+    <li><md-outlined-button>Solutions</md-outlined-button></li>
+    <li><md-outlined-button href="/about">About</md-outlined-button></li>
+    <li><md-outlined-button>Contact</md-outlined-button></li>
+    <li><md-filled-button class="signin-button" style="margin-bottom: 10px;">Get started</md-filled-button></li>
+  </div>
+
+  <script>
+    const toggle_Btn = document.querySelector('.toggleBtn')
+    const toggleBtnIcon = document.querySelector('.toggleBtn svg')
+    const dropDownMenu = document.querySelector('.menuDiv')
+    toggle_Btn.onclick = function () {
+      dropDownMenu.classList.toggle('open')
+    }
+  </script>
 
   <div class="hero">
     <div class="hero-text">
@@ -32,7 +55,7 @@
       <p style="font-size: 24px; margin: 10px;">Get access to the best learning resources and instructors</p>
       <md-filled-button id="getstartedbtn">Get started</md-filled-button>
     </div>
-    </div>
+  </div>
 </body>
 
 </html>
