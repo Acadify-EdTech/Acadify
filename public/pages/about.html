@@ -13,14 +13,41 @@
   <div class="header">
     <h3 class="logo">Acadify</h3>
     <nav>
-      <ul>
+      <ul class="links">
         <md-outlined-button href="/">Home</md-outlined-button>
         <md-outlined-button>Products</md-outlined-button>
         <md-outlined-button>Solutions</md-outlined-button>
+        <md-outlined-button href="/about">About</md-outlined-button>
         <md-outlined-button>Contact</md-outlined-button>
+        <md-filled-button class="signin-button">Get started</md-filled-button>
       </ul>
+      <div class="toggleBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+      </div>
     </nav>
   </div>
+
+  <div class="menuDiv">
+    <li><md-outlined-button href="/" style="margin-top: 10px;">Home</md-outlined-button></li>
+    <li><md-outlined-button>Products</md-outlined-button></li>
+    <li><md-outlined-button>Solutions</md-outlined-button></li>
+    <li><md-outlined-button href="/about">About</md-outlined-button></li>
+    <li><md-outlined-button>Contact</md-outlined-button></li>
+    <li><md-filled-button class="signin-button" style="margin-bottom: 10px;">Get started</md-filled-button></li>
+    <li><md-lined-button>Sign in</md-outlined-button></li>
+
+  </div>
+  
+  <script>
+    const toggle_Btn = document.querySelector('.toggleBtn')
+    const toggleBtnIcon = document.querySelector('.toggleBtn svg')
+    const dropDownMenu = document.querySelector('.menuDiv')
+    toggle_Btn.onclick = function () {
+      dropDownMenu.classList.toggle('open')
+    }
+  </script>
   <div class="sub-header1">
     <h2 >The Inception</h2>
   </div>
@@ -31,7 +58,8 @@
   </div>
   </div>
   <div class="sub-header-quote">
-    <p>Passion for Education, Dedication to Technology</p>
+    <p>"Passion for Education, Dedication to Technology"</p>
+    <p>- Acadify Team</p>
   </div>
   <div class="content">
   <div class="sub-header2">
@@ -47,12 +75,13 @@
   <div class="sub-header3">
     <h2>Meet the Minds Behind Acadify</h2>
   <div class="sub-header-content3">
-    <p>Arpita Agrahari - Lead Developer<br>
+    <p><strong>Arpita Agrahari</strong> - <i>Lead Developer</i><br>
       Arpita brings her expertise and creativity to the forefront, steering Acadify's technical development with a keen eye for innovation.
       <br>
-      <br>Harshit Shukla - Lead Developer<br>
+      <br><strong>Harshit Shukla </strong>- <i>Lead Developer</i><br>
         Harshit's dedication to excellence drives the core of Acadify's technological advancements, ensuring our solutions are at the forefront of educational technology.
-        <br><br>Join us on this exciting journey, where education meets innovation, and together, let's shape the future of learning!
+        <br><br><br>
+        <br>Join us on this exciting journey, where education meets innovation, and together, let's shape the future of learning!
       </p>
       </div>
       </div>
