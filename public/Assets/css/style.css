@@ -68,20 +68,22 @@ a {
 }
 
 .menuDiv{
-    position: absolute;
-    right: 2rem;
-    top: 60px;
-    width: 200px;
-    height: 0;
-    background-color: var(--md-sys-color-surface-container-low);
-    border-radius: 15px;
-    overflow: hidden;
-    display: none;
-    transition: height 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+        position: fixed;
+        right: 0;
+        top: 60px;
+        width: 0;
+        height: 100%;
+        background-color: white;
+        overflow: hidden;
+        display: none;
+        z-index: 10;
+        overflow-x: hidden;
+        transition: 0.3s ease-in-out;
+        box-shadow: -4px 7px 7px  rgba(0, 0, 0, 0.3); /* Add shadow to the left */
+    }
 
 .menuDiv.open{
-    height: auto;
+    height: 90%;
 }
 
 .menuDiv li{
