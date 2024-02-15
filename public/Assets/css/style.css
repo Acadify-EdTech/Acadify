@@ -21,6 +21,7 @@
     margin: 0;
 }
 
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -104,11 +105,25 @@ a {
 
     .header .toggleBtn{
         display: block;
+        order: 1; /* toggleBtn to the left */
     }
 
     .menuDiv{
         display: block;
     }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo{
+        order: 2; /* logo to the center */
+    }
+    .signinBtn{
+        order: 3; /* signinBtn to the right */
+    }
 }
+
 
 
