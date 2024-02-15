@@ -167,21 +167,6 @@
   text-decoration: none;
   &:hover {
     color: #666;
-  }
-}
-.footer a:hover {
-  color: var(--md-sys-color-primary);
-}
-
-.col-footer {
-  text-align: center;
-}
-
-.col-footer hr {
-  border: none;
-  border-top: 1px solid #333;
-  width: none;
-  margin: none;
 } */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
