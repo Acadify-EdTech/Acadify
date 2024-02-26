@@ -1,3 +1,4 @@
+//FIXME #15 
 jQuery(document).ready(function() {
     jQuery('.toggleBtn').on('click', function() {
         var menuDiv = jQuery("#MenuDiv");
