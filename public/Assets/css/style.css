@@ -99,8 +99,14 @@ a {
     padding: 5px 10px;
     display: flex;
 }
-
-.menuDiv md-filled-button, .menuDiv md-text-button {
+.menuDiv md-text-button {
+    font-size: 1.1rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.menuDiv md-filled-button{
     width: 100%;
     font-size: 1.1rem;
 
