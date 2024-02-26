@@ -5,6 +5,9 @@
     --md-ref-typeface-plain: system-ui;
     font-family: var(--md-ref-typeface-plain);
 }
+.navbarContainer{
+    margin-bottom: 50px;
+}
 body{
     margin: 0;
 }
