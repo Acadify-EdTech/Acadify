@@ -5,6 +5,9 @@
     --md-ref-typeface-plain: system-ui;
     font-family: var(--md-ref-typeface-plain);
 }
+body{
+    margin: 0;
+}
 
 .header, .hero {
     display: flex;
@@ -13,13 +16,23 @@
 }
 
 .header {
-    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 10px 5px 10px;
     font-size: 20px;
     font-weight: bold;
+    z-index: 1000;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.178);
+    backdrop-filter: blur(10px) saturate(180%);
+    margin-bottom: 0;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 1.5rem;
+    font-family: var(--md-ref-typeface-brand);
+    font-weight: bold;
     margin: 0;
     cursor: pointer;
 }
@@ -46,7 +59,7 @@ a {
 }
 
 .hero {
-    margin-top: 20px;
+    margin-top: 50px;
     height: 50vh;
     justify-content: center;
 }
@@ -67,7 +80,7 @@ a {
 .menuDiv {
     position: fixed;
     left: 0;
-    top: 60px;
+    top: 50px;
     width: 0;
     height: 100%;
     background-color: white;
@@ -75,14 +88,13 @@ a {
     display: none;
     z-index: 10;
     cursor: pointer;
-    transition: 0.3s ease-out;
+    transition: 0.2s ease-out;
 }
 
 .menuDiv li {
     padding: 5px 10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
 }
 
 .menuDiv md-filled-button, .menuDiv md-outlined-button {
