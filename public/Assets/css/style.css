@@ -21,6 +21,7 @@
 .logo {
     font-size: 24px;
     margin: 0;
+    cursor: pointer;
 }
 
 nav ul, li {
@@ -105,5 +106,8 @@ a {
 
     .menuDiv {
         display: block;
+    }
+    .menuDiv.expanded {
+        width: 100%;
     }
 }

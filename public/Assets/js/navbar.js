@@ -1,9 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var toggleButton = document.querySelector('.toggleBtn');
-    toggleButton.addEventListener('click', toggleNav);
+jQuery(document).ready(function() {
+    jQuery('.toggleBtn').on('click', function() {
+        var menuDiv = jQuery("#MenuDiv");
+        if (menuDiv.width() === 0) {
+            menuDiv.width('100%');
+        } else {
+            menuDiv.width(0);
+        }
+    });
 });
-
-function toggleNav() {
-    var menuDiv = document.getElementById("MenuDiv");
-    menuDiv.style.width = menuDiv.style.width === "100%" ? "0" : "100%";
-}
