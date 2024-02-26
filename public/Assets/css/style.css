@@ -4,6 +4,7 @@
     --md-ref-typeface-brand: 'Open Sans';
     --md-ref-typeface-plain: system-ui;
     font-family: var(--md-ref-typeface-plain);
+    --md-text-button-icon-size: 1.3rem;
 }
 .navbarContainer{
     margin-bottom: 50px;
@@ -97,11 +98,12 @@ a {
 .menuDiv li {
     padding: 5px 10px;
     display: flex;
-    align-items: left;
 }
 
-.menuDiv md-filled-button, .menuDiv md-outlined-button {
+.menuDiv md-filled-button, .menuDiv md-text-button {
     width: 100%;
+    font-size: 1.1rem;
+
 }
 
 @media screen and (max-width: 820px) {
