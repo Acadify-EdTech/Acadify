@@ -1,19 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
-
+html {
+    scroll-behavior: smooth;
+}
 :root {
     --md-ref-typeface-brand: 'Open Sans';
     --md-ref-typeface-plain: system-ui;
     font-family: var(--md-ref-typeface-plain);
     --md-text-button-icon-size: 1.3rem;
 }
-.navbarContainer{
-    margin-bottom: 50px;
+
+.navbarContainer {
+    margin-bottom: 0%;
 }
-body{
+
+body {
     margin: 0;
 }
 
-.header, .hero {
+.header,
+.hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,14 +28,14 @@ body{
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 10px 5px 10px;
+    padding: 25px 50px;
     font-size: 20px;
     font-weight: bold;
     z-index: 1000;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.178);
+    background-color: rgba(255, 255, 255, 0.136);
     backdrop-filter: blur(10px) saturate(180%);
-    margin-bottom: 0;
+    transition: 0.3s ease-in-out;
 }
 
 .logo {
@@ -41,7 +46,8 @@ body{
     cursor: pointer;
 }
 
-nav ul, li {
+nav ul,
+li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -56,24 +62,58 @@ a {
     text-decoration: none;
 }
 
-.signin-button, #getstartedbtn {
+.signin-button,
+#getstartedbtn {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
 }
 
+@keyframes gradient-background {
+    0% {
+        background-position: 0% 50%;
+    }
+    20% {
+        background-position: 20% 50%;
+    }
+    40% {
+        background-position: 40% 50%;
+    }
+    60% {
+        background-position: 60% 50%;
+    }
+    80% {
+        background-position: 80% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.bg-animation {
+    background: linear-gradient(270deg, #fff8f1, #ffffff, var(--md-sys-color-inverse-on-surface), #ffffff);
+    background-size: 300% 300%;
+    animation: gradient-background 10s ease-in-out infinite;
+}
+
 .hero {
-    margin-top: 50px;
-    height: 50vh;
+    width: 100vw;
+    /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
     justify-content: center;
+    position: relative;
 }
 
 .hero-text {
     text-align: center;
+    padding: 0 10px;
 }
 
 #getstartedbtn {
-    margin-top: 10px;
+    margin: 10px;
+    font-size: 1.1rem;
+    --md-filled-button-container-height: 50px;
 }
 
 .toggleBtn {
@@ -99,6 +139,7 @@ a {
     padding: 5px 10px;
     display: flex;
 }
+
 .menuDiv md-text-button {
     font-size: 1.1rem;
     display: flex;
@@ -106,13 +147,57 @@ a {
     align-items: center;
     cursor: pointer;
 }
-.menuDiv md-filled-button{
+
+.menuDiv md-filled-button {
     width: 100%;
     font-size: 1.1rem;
+}
+
+.bigHeading {
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 7% auto 10px auto;
+}
+
+.mediumText {
+    font-size: 1.5rem;
+    margin: 10px auto;
+}
+
+/* Container for the products */
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 3%;
+}
+
+.product1Container, .product2Container, .product3Container, .product4Container {
+    flex: 1 0 45%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin: 20px;   
+    background-color: var(--md-sys-color-primary-container);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.productTitle{
+    font-size: 2.1rem;
+    font-weight: bold;
 
 }
 
+.productDescription{
+    font-size: 1.1rem;
+}
+
 @media screen and (max-width: 820px) {
+    .header {
+        padding: 15px 20px;
+    }
+
     .header .logo {
         margin: auto;
         order: 2;
@@ -130,7 +215,29 @@ a {
     .menuDiv {
         display: block;
     }
+
     .menuDiv.expanded {
         width: 100%;
+    }
+
+    .bigHeading {
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+    }
+
+    .mediumText {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .product1Container, .product2Container, .product3Container, .product4Container {
+        flex: 1 0 50%; /* On small screens, the boxes will take up 100% of the line, meaning they will stack vertically */
+        
+    }
+    @media screen and (max-width: 820px) {
+        .bg-animation {
+            backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
+            z-index: -1;
+        }
     }
 }
