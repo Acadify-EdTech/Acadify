@@ -7,7 +7,7 @@
   <script src="./assets/js/bundle.js"></script>
   <script src="./assets/js/jQuery.js"></script>
   <link rel="stylesheet" href="./assets/css/style.css">
-
+  <script src="./assets/js/script.js"></script>
   <link rel="stylesheet" href="./assets/css/pallette/light.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -17,7 +17,7 @@
 <body>
 
   <!-- Navbar starts here -->
-  <div class="navbarContainer">
+  <div class="navbarContainer" id="navbar">
     <script>
       jQuery(document).ready(function () {
         jQuery.get("pages/navbar.html", function (data) {
@@ -31,6 +31,7 @@
     </script>
   </div>
   <!-- navbar ends here -->
+<div class="bodyContainer">
 
   <div class="hero bg-animation">
     <div class="hero-text">
@@ -40,7 +41,7 @@
     </div>
   </div>
 
-  <div class="bodyContainer">
+
     <div class="productContainer">
       <div class="product1Container">
         <h3 class="productTitle">Product 1</h3>

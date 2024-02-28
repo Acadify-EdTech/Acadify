@@ -10,8 +10,10 @@ jQuery(document).ready(function() {
             toggleIconSpan.text('close');
         } else {
             menuDiv.width(0);
-            Header.css('background-color', 'rgba(255, 255, 255, 0.178)');
+            Header.css('background-color', 'var(--md-sys-color-secondary-container)');
             toggleIconSpan.text('menu');
         }
     });
+
 });
+
