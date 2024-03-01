@@ -259,7 +259,9 @@ a {
     padding: 20px;
     border-radius: 20px;
 }
-
+.footerContainer{
+    margin-top: 30px;
+}
 @media screen and (max-width: 930px) {
     .header {
         padding: 15px 20px;

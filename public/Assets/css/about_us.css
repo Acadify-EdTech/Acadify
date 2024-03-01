@@ -82,16 +82,16 @@ background-color: var(--md-sys-color-tertiary-container);
 }
 @media (max-width: 930px) {
   .aboutusHead {
-    margin: 30px 45px;
+    margin: 30px 25px;
     font-size: 3.3rem;
   }
   .aboutusSubHead {
-    margin: 30px 45px;
+    margin: 30px 25px;
     font-size: 1.6rem;
   }
   .row1, .row2, .row3, .quoteContainer{
     flex-direction: column;
-    margin: 30px 45px;
+    margin: 30px 25px;
   }
   .row1col1, .row1col2, .row2col1, .row2col2, .row3col1, .row3col2{
     flex: 1 0 100%;
