@@ -1,24 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
-
-html {
-    scroll-behavior: smooth;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
     --md-ref-typeface-brand: 'Open Sans';
     --md-ref-typeface-plain: system-ui;
+    --md-ref-typeface-mono: 'Roboto Mono';
     font-family: var(--md-ref-typeface-plain);
     --md-text-button-icon-size: 1.3rem;
 }
 
 .navbarContainer {
     margin-bottom: 90px;
-    background-color: var(--md-sys-color-secondary-container);
+    background-color: var(--md-sys-color-surface-container);
 }
 
 body {
     margin: 0;
-    background-color: var(--md-sys-color-secondary-container);
+    background-color: var(--md-sys-color-surface-container);
 }
 
 .header,
@@ -37,7 +35,7 @@ body {
     font-weight: bold;
     z-index: 1000;
     justify-content: space-between;
-    background-color: var(--md-sys-color-secondary-container);
+    background-color: var(--md-sys-color-surface-container);
     transition: 0.3s ease-in-out;
 }
 
@@ -72,36 +70,20 @@ a {
     cursor: pointer;
 }
 
-@keyframes gradient-background {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    20% {
-        background-position: 20% 50%;
-    }
-
-    40% {
-        background-position: 40% 50%;
-    }
-
-    60% {
-        background-position: 60% 50%;
-    }
-
-    80% {
-        background-position: 80% 50%;
-    }
-
-    100% {
-        background-position: 100% 50%;
-    }
+.bg-animation {
+    background: linear-gradient(270deg, #fff8f1, #ffffff, rgb(242, 221, 211), #ffffff, #fff8f1);
+    background-size: 200% 200%;
+    animation: gradient-background 10s ease-in-out infinite;
+    backdrop-filter: blur(60px);
 }
 
-.bg-animation {
-    background: linear-gradient(270deg, #fff8f1, #ffffff, var(--md-sys-color-inverse-on-surface), #ffffff);
-    background-size: 300% 300%;
-    animation: gradient-background 10s ease-in-out infinite;
+@keyframes gradient-background {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }
 
 .hero {
@@ -172,8 +154,8 @@ a {
 .bodyContainer {
     height: 85vh;
     overflow: auto; /* Updated from 'scroll' to 'auto' */
-    background-color: var(--md-sys-color-background);
-    margin: 3%;
+    background-color:white;
+    margin: 2%;
     border-radius: 20px;
     z-index: -11;
 }
@@ -224,7 +206,7 @@ a {
     flex: 1 0 30%;
     margin-bottom: 10px;
     margin-top: 10px;
-    background-color: var(--md-sys-color-primary-container);
+    background-color: var(--md-sys-color-surface-container);
     border: solid 1px var(--md-sys-color-outline);
     padding: 20px;
     border-radius: 20px;
