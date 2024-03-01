@@ -91,7 +91,7 @@ background-color: var(--md-sys-color-tertiary-container);
   }
   .row1, .row2, .row3, .quoteContainer{
     flex-direction: column;
-    margin: 30px 25px;
+    margin: 30px 20px;
   }
   .row1col1, .row1col2, .row2col1, .row2col2, .row3col1, .row3col2{
     flex: 1 0 100%;
