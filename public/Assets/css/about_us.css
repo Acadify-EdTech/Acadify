@@ -1,186 +1,106 @@
-/*Designing css for contents of about us page*/
-
-
-
-.sub-header1 {
-    padding: 30px;
-    font-family: var(--md-ref-typeface-brand);
-    margin-top: 20px;
-    color: var(--md-sys-color-secondary);
-    display: flex;
-    align-items: center;
-  }
-  
-  .row-head h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    padding: 20px;
-  }
-  
-
-.sub-header-quote {
-    font-family: var(--md-ref-typeface-brand);
-    font-size: 16px;
-    font-weight: 100;
-    font-style: italic;
-    color: var(--md-sys-color-surface-tint);
-    margin: 2rem 0;
-    text-align: center;
-  }
-  
-  
-  .sub-header-quote p:first-child {
-    font-size: 1.5rem;
-    color: var(--md-sys-color-secondary);
-  }
-  
-  .sub-header-quote p:last-child {
-    font-size: 1rem;
-    color: var(--md-sys-color-outline);
-    text-transform: uppercase;
-  }
-  .row1{
-    border-radius: 15px;
-    background-color: var(--md-sys-color-primary-container);
-    padding: 20px;
-    margin: 30px;
-    transition: transform 0.3s ease;
-  }
-  .row1:hover{
-    transform: scale(1.05);
-  }
-  .row1:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .column-content1{
-    text-align:start;
-    float: left;
-    padding: 4px;
-    width: 50%;
-  }
-  .column-content2{
-    float: right;
-    padding: 4px;
-    width: 50%;
-  }
-  /* changes*/
-  .column-content1,
-.column-content2 {
-  width: 45%;
-  margin: 20px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease;
+.aboutusHead{
+  font-size: 5rem;
+  font-family: var(--md-ref-typeface-brand);
+  margin: 45px 75px;
 }
 
-/**/
-  .content{
-    background-color: var(--md-sys-color-primary-container);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-  }
-  .header-content{
-    padding: 30px;
-    font-family: var(--md-ref-typeface-brand);
-    margin-top: 20px;
-    color: var(--md-sys-color-secondary);
-  }
-  .content-box{
-    padding: 10px;
-    font-family: var(--md-ref-typeface-brand);
-    margin-top: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
-    background-color: var( --md-sys-color-primary-fixed-dim);
-    border-radius: 10px;
-  }
-  .sub-header-content1 , .sub-header-content2{
-    
-    padding: 15px;
-    background-color: var(--md-sys-color-secondary-container);
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
-  .content-box:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .sub-header-content1{
-    text-align:initial;
-    float: left;
-    padding: 4px;
-    width: 50%;
-  }
-  .sub-header-content2{
-    display: flex;
-    float: right;
-    padding: 4px;
-    width: 50%;
-  }
-  
-  .row2{
-    color: var(--md-sys-color-secondary);
-    padding: 2px;
-  }
+.aboutusSubHead{
+  font-size: 2.1rem;
+  margin: 45px 75px;
+  color: rgb(0, 0, 0);
+  font-family: var(--md-ref-typeface-mono);
+}
+.row1, .row2, .row3 {
+  display: flex;
+  flex-direction: row;
+  margin: 45px 70px;
+}
+p{
+  font-size: 1rem;
+  font-family: var(--md-ref-typeface-mono);
+  color: var(--md-sys-color-on-surface);
 
-  /* ---responsiveness of about-us content----*/
-  @media screen and (min-width: 820px) {
-    .content-bpx {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  @media screen and (max-width: 819px) {
-    .content-bpx {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 1rem;
-    }
-  
-    .column-content1,
-    .column-content2,
-    .sub-header-content1,
-    .sub-header-content2 {
-      width: 100%;
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .sub-header1 {
-      flex-direction: column;
-    }
-  
-    .sub-header1 h2 {
-      font-size: 2rem;
-    }
-  
-    .sub-header-quote {
-      margin: 1rem 0;
-    }
-  
-    .sub-header-quote p:first-child {
-      font-size: 1.2rem;
-    }
-  
-    .sub-header-quote p:last-child {
-      font-size: 0.8rem;
-    }
-  }
+}
+.row1col1, .row2col2 {
+  flex: 1 0 60%;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 20px;
+  border: solid 1px var(--md-sys-color-outline);
+  margin: 5px;
+  padding: 20px;
+}
 
-  @media (max-width: 767px) {
-    .column-content1,
-    .column-content2 {
-      width: 100%;
-      margin: 20px 0;
-    }
+.row1col2, .row2col1 {
+  flex: 1 0 40%;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 20px;
+  border: solid 1px var(--md-sys-color-outline);
+  margin: 5px;
+  padding: 20px;
+}
+
+.row3col1, .row3col2 {
+  flex: 1 0 40%;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 20px;
+  border: solid 1px var(--md-sys-color-outline);
+  margin: 5px;
+  padding: 20px;
+}
+.quoteContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 45px 70px;
+}
+.quote{
+  font-size: 1.5rem;
+  font-family: var(--md-ref-typeface-mono);
+  color: var(--md-sys-color-on-surface);
+  margin: 20px 25% 0 25%;
+text-align: center;
+background-color: var(--md-sys-color-tertiary-container);
+}
+.quoteAuthor {
+  font-size: 1.2rem;
+  font-family: var(--md-ref-typeface-mono);
+  color: var(--md-sys-color-on-surface);
+  margin: 4px 25%;
+  text-align: right;
+  background-color: var(--md-sys-color-tertiary-container);
+}
+.devName{
+  font-size: 1.5rem;
+  font-family: var(--md-ref-typeface-mono);
+  color: var(--md-sys-color-on-surface);
+  font-weight: 600;
+}
+.devRole{
+  font-size: 1.2rem;
+  font-family: var(--md-ref-typeface-mono);
+  color: var(--md-sys-color-on-surface);
+  font-weight: 490;
+}
+@media (max-width: 930px) {
+  .aboutusHead {
+    margin: 30px 45px;
+    font-size: 3.3rem;
   }
-
-/* End of about_us.css */
-
+  .aboutusSubHead {
+    margin: 30px 45px;
+    font-size: 1.6rem;
+  }
+  .row1, .row2, .row3, .quoteContainer{
+    flex-direction: column;
+    margin: 30px 45px;
+  }
+  .row1col1, .row1col2, .row2col1, .row2col2, .row3col1, .row3col2{
+    flex: 1 0 100%;
+  }
+  .quote{
+    margin: 0px;
+  }
+  .quoteAuthor{
+    margin: 5px 0px;
+  }
+}
 
