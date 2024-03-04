@@ -18,7 +18,7 @@
       <h3 class="logo">Acadify</h3>
       <nav>
         <ul class="links">
-          <md-outlined-button href="/">Home</md-outlined-button>
+          <md-filled-tonal-button href="/">Home</md-filled-tonal-button>
           <md-outlined-button>Products</md-outlined-button>
           <md-outlined-button>Solutions</md-outlined-button>
           <md-outlined-button href="/about">About</md-outlined-button>
@@ -34,21 +34,11 @@
     </div>
 
     <div class="menuDiv" id="MenuDiv">
-      <li><md-text-button href="/" style="margin-top: 10px;" has-icon>Home<span class="material-symbols-rounded" slot="icon" viewBox="0 0 48 48">
-        home
-      </span></md-text-button></li>
-      <li><md-text-button has-icon>Products<span class="material-symbols-rounded" slot="icon" viewBox="0 0 48 48">
-        more
-      </span></md-text-button></li>
-      <li><md-text-button has-icon>Solutions<span class="material-symbols-rounded" slot="icon" viewBox="0 0 48 48">
-            read_more
-          </span></md-text-button></li>
-      <li><md-text-button href="/about" has-icon>About<span class="material-symbols-rounded" slot="icon" viewBox="0 0 48 48">
-            person
-          </span></md-text-button></li>
-      <li><md-text-button href="/contact" has-icon>Contact<span class="material-symbols-rounded" slot="icon" viewBox="0 0 48 48">
-            call
-          </span></md-text-button></li>
+      <li><md-text-button href="/" style="margin-top: 10px;" has-icon>Home<md-icon slot="icon">home</md-icon></md-text-button></li>
+      <li><md-text-button>Products<md-icon slot="icon">more</md-icon></md-text-button></li>
+      <li><md-text-button>Solutions<md-icon slot="icon">read_more</md-icon></md-text-button></li>
+      <li><md-text-button href="/about">About<md-icon slot="icon">person</md-icon></md-text-button></li>
+      <li><md-text-button href="/contact">Contact<md-icon slot="icon">call</md-icon></md-text-button></li>
       <li><md-filled-button class="signin-button" style="margin-bottom: 10px;">Get started</md-filled-button></li>
     </div>
   </div>
