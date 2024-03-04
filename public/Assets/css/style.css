@@ -71,7 +71,7 @@ a {
 }
 
 .bg-animation {
-    background: linear-gradient(270deg, #fff8f1, #ffffff, rgb(242, 221, 211), #ffffff, #fff8f1);
+    background: linear-gradient(270deg, var(--md-sys-color-surface-bright), #ffffff, var(--md-sys-color-secondary-container), #ffffff, var(--md-sys-color-surface-bright));
     background-size: 200% 200%;
     animation: gradient-background 10s ease-in-out infinite;
     backdrop-filter: blur(60px);
@@ -129,7 +129,7 @@ a {
 }
 
 
-.men
+.men/Users/Harshitshukla/Documents/FrontEnd-4thSemester/light.css
 .menuDiv md-filled-button {
     width: 100%;
     font-size: 1.1rem;
