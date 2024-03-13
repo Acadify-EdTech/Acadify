@@ -101,7 +101,8 @@ a {
 #getstartedbtn {
     margin: 10px;
     font-size: 1.1rem;
-    --md-filled-button-container-height: 50px;
+    --md-filled-tonal-button-container-height: 50px;
+    border: solid 1px var(--md-sys-color-outline);
 }
 
 .toggleBtn {
@@ -128,13 +129,10 @@ a {
     display: flex;
 }
 
-
-.men/Users/Harshitshukla/Documents/FrontEnd-4thSemester/light.css
-.menuDiv md-filled-button {
+.menuDiv md-filled-tonal-button {
     width: 100%;
     font-size: 1.1rem;
 }
-
 .bigHeading {
     font-size: 5rem;
     margin: 7% auto 10px auto;

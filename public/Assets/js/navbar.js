@@ -15,5 +15,11 @@ jQuery(document).ready(function() {
         }
     });
 
+        jQuery('.navButton').each(function() {
+            if (jQuery(this).attr('href') === window.location.pathname) {
+                var html = jQuery(this).prop('outerHTML').replace('md-outlined-button', 'md-filled-button');
+                jQuery(this).replaceWith(html);
+            }
+        });
 });
 
