@@ -1,15 +1,3 @@
-.aboutusHead{
-  font-size: 5rem;
-  font-family: var(--md-ref-typeface-brand);
-  margin: 45px 75px;
-}
-
-.aboutusSubHead{
-  font-size: 2.1rem;
-  margin: 45px 75px;
-  color: rgb(0, 0, 0);
-  font-family: var(--md-ref-typeface-mono);
-}
 .row1, .row2, .row3 {
   display: flex;
   flex-direction: row;
@@ -81,15 +69,7 @@ background-color: var(--md-sys-color-tertiary-container);
   font-weight: 490;
 }
 @media (max-width: 930px) {
-  .aboutusHead {
-    margin: 30px 25px;
-    font-size: 3.3rem;
-  }
-  .aboutusSubHead {
-    margin: 30px 25px;
-    font-size: 1.6rem;
-  }
-  .row1, .row2, .row3, .quoteContainer{
+.row1, .row2, .row3, .quoteContainer{
     flex-direction: column;
     margin: 30px 20px;
   }

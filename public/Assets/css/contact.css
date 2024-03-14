@@ -1,0 +1,51 @@
+.rightDiv{
+    flex: 1 0 55%;
+}
+.leftDiv{
+    flex: 1 0 35%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.rightDiv, .leftDiv{
+    background-color: var(--md-sys-color-surface-container);
+    border-radius: 20px;
+    border: solid 1px var(--md-sys-color-outline);
+    margin: 5px;
+    padding: 20px;
+}
+
+.contactList, .listElement{
+    list-style-type: disc;
+}
+.contactList{
+    margin: 5px;
+    padding: 20px;
+}
+.listElement{
+    font-size: 1rem;
+    font-family: var(--md-ref-typeface-mono);
+    color: var(--md-sys-color-on-surface);
+    margin: 0 0 10px 20px;
+}
+md-filled-icon-button{
+    --md-filled-icon-button-container-width: 50px;
+    --md-filled-icon-button-container-height: 50px;
+    --md-filled-icon-button-icon-size: 29px;
+    margin: 5px;
+}
+
+md-outlined-text-field{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.send{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}

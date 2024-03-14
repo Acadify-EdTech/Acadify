@@ -254,6 +254,19 @@ a {
 .footerContainer{
     margin-top: 30px;
 }
+
+.Heading{
+    font-size: 5rem;
+    font-family: var(--md-ref-typeface-brand);
+    margin: 45px 75px;
+  }
+  
+  .SubHead{
+    font-size: 2.1rem;
+    margin: 45px 75px;
+    color: rgb(0, 0, 0);
+    font-family: var(--md-ref-typeface-mono);
+  }
 @media screen and (max-width: 930px) {
     .header {
         padding: 15px 20px;
@@ -307,4 +320,14 @@ a {
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    .Heading {
+        margin: 30px 25px;
+        font-size: 3.3rem;
+      }
+      .SubHead {
+        margin: 30px 27px;
+        font-size: 1.6rem;
+      }
+      
 }
