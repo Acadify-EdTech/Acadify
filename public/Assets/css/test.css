@@ -61,10 +61,13 @@ body{
     display: flex;
     height: 88vh; /* Adjust as needed */
 }
-
+md-linear-progress {
+    display: none;
+    margin: 10px;
+}
 .question, .editorContainer, .output{
     color: var(--md-sys-color-on-background);
-    padding: 20px;
+    padding: 10px 15px;
     overflow: auto;
     border-radius: 20px;
     overflow: auto;
@@ -81,6 +84,7 @@ body{
 }
 
 .editorContainer {
+    position: relative;
     flex: 0 1 70%;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -92,6 +96,7 @@ body{
     height: 100%;
     width: 100%;
     border-radius: 20px;
+    background-color: var(--md-sys-color-surface-container-high);
 }
 .output {
     flex: 0 1 30%;
@@ -100,3 +105,13 @@ body{
     background-color: var(--md-sys-color-surface-container-high);
 }
 
+.buttonContainer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+}
+
+md-filled-tonal-icon-button {
+    margin: 5px;
+}
