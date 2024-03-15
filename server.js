@@ -16,6 +16,10 @@ app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'about.html'));
 });
 
+app.get('/test', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'test.html'));
+});
+
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'contact.html'));
 });

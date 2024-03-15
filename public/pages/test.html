@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/assets/js/bundle.js"></script>
+    <script src="/assets/js/jQuery.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.7/ace.js" integrity="sha512-oz/97HdPI510jvvYzVqE2tzz+jWpvUeVkK5OT0S2kPZOxuR+9cE8zT1V6UgwtRG71ThICBEtkPEzN5tfP/YeYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./assets/css/test.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Test</title>
+</head>
+
+<body class="dark">
+    <div class="testContainer">
+        <div class="question">
+            <h1>Palindrome Checker</h1>
+
+            <h2>Problem</h2>
+            <p>The program will determine whether a given string is a palindrome.</p>
+
+            <h2>Language</h2>
+            <p>Python (This solution can be easily adapted to other languages as well)</p>
+
+            <h2>Input</h2>
+            <p>The input will be a string containing text, letters, numbers, or a combination of these.</p>
+
+            <h2>Output</h2>
+            <p>The program will print a message indicating whether the input string is a palindrome or not.</p>
+
+            <h2>Sample Input</h2>
+
+            <table style="width:100%">
+                <tr>
+                    <th>Input</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td>race car</td>
+                    <td>race car is a palindrome</td>
+                </tr>
+                <tr>
+                    <td>madam</td>
+                    <td>madam is a palindrome</td>
+                </tr>
+                <tr>
+                    <td>hello</td>
+                    <td>hello is not a palindrome</td>
+                </tr>
+                <tr>
+                    <td>12321</td>
+                    <td>12321 is a palindrome</td>
+                </tr>
+                <tr>
+                    <td>Race Car</td>
+                    <td>Race Car is a palindrome</td>
+                </tr>
+            </table>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>The input string can be of any length.</li>
+                <li>The program should treat alphanumeric characters (letters and numbers) case-insensitively (e.g.,
+                    "Race Car" is considered a palindrome).</li>
+                <li>Non-alphanumeric characters (punctuation, spaces, etc.) should be ignored.</li>
+            </ul>
+        </div>
+        <div class="editor-output">
+            <div class="editorContainer">
+                <div id="editor">function foo(items) {
+                    var x = "All this is syntax highlighted";
+                    return x;
+                }</div>
+            </div>
+            <div class="output">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repudiandae doloremque
+                debitis amet architecto ipsum! Facere dicta nesciunt ipsum! Voluptatibus quis pariatur ullam corrupti
+                facilis deleniti quo temporibus odio possimus.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Odio culpa saepe, laboriosam, esse quos temporibus similique ducimus natus nulla corporis iure harum hic
+                ullam. Repudiandae sapiente dignissimos et voluptas facilis.Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Odio culpa saepe, laboriosam, esse quos temporibus similique ducimus natus nulla
+                corporis iure harum hic ullam. Repudiandae sapiente dignissimos et voluptas facilis.Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Odio culpa saepe, laboriosam, esse quos temporibus similique
+                ducimus natus nulla corporis iure harum hic ullam. Repudiandae sapiente dignissimos et voluptas
+                facilis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio culpa saepe, laboriosam, esse quos
+                temporibus similique ducimus natus nulla corporis iure harum hic ullam. Repudiandae sapiente dignissimos
+                et voluptas facilis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio culpa saepe,
+                laboriosam, esse quos temporibus similique ducimus natus nulla corporis iure harum hic ullam.
+                Repudiandae sapiente dignissimos et voluptas facilis.Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Odio culpa saepe, laboriosam, esse quos temporibus similique ducimus natus nulla corporis iure
+                harum hic ullam. Repudiandae sapiente dignissimos et voluptas facilis.Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Odio culpa saepe, laboriosam, esse quos temporibus similique ducimus natus
+                nulla corporis iure harum hic ullam. Repudiandae sapiente dignissimos et voluptas facilis.Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Odio culpa saepe, laboriosam, esse quos temporibus
+                similique ducimus natus nulla corporis iure harum hic ullam. Repudiandae sapiente dignissimos et
+                voluptas facilis.</div>
+        </div>
+    </div>
+
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/terminal");
+        editor.session.setMode("ace/mode/javascript");
+    </script>
+</body>
+
+</html>
