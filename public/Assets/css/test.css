@@ -1,0 +1,102 @@
+:root{
+    --md-sys-color-primary: rgb(255 182 137);
+    --md-sys-color-surface-tint: rgb(255 182 137);
+    --md-sys-color-on-primary: rgb(81 35 0);
+    --md-sys-color-primary-container: rgb(110 56 16);
+    --md-sys-color-on-primary-container: rgb(255 219 200);
+    --md-sys-color-secondary: rgb(229 191 169);
+    --md-sys-color-on-secondary: rgb(67 43 28);
+    --md-sys-color-secondary-container: rgb(92 65 48);
+    --md-sys-color-on-secondary-container: rgb(255 219 200);
+    --md-sys-color-tertiary: rgb(203 201 146);
+    --md-sys-color-on-tertiary: rgb(50 50 9);
+    --md-sys-color-tertiary-container: rgb(73 73 30);
+    --md-sys-color-on-tertiary-container: rgb(231 229 172);
+    --md-sys-color-error: rgb(255 180 171);
+    --md-sys-color-on-error: rgb(105 0 5);
+    --md-sys-color-error-container: rgb(147 0 10);
+    --md-sys-color-on-error-container: rgb(255 218 214);
+    --md-sys-color-background: rgb(25 18 13);
+    --md-sys-color-on-background: rgb(240 223 215);
+    --md-sys-color-surface: rgb(25 18 13);
+    --md-sys-color-on-surface: rgb(240 223 215);
+    --md-sys-color-surface-variant: rgb(82 68 60);
+    --md-sys-color-on-surface-variant: rgb(215 194 184);
+    --md-sys-color-outline: rgb(159 141 131);
+    --md-sys-color-outline-variant: rgb(82 68 60);
+    --md-sys-color-shadow: rgb(0 0 0);
+    --md-sys-color-scrim: rgb(0 0 0);
+    --md-sys-color-inverse-surface: rgb(240 223 215);
+    --md-sys-color-inverse-on-surface: rgb(56 46 41);
+    --md-sys-color-inverse-primary: rgb(139 79 37);
+    --md-sys-color-primary-fixed: rgb(255 219 200);
+    --md-sys-color-on-primary-fixed: rgb(49 19 0);
+    --md-sys-color-primary-fixed-dim: rgb(255 182 137);
+    --md-sys-color-on-primary-fixed-variant: rgb(110 56 16);
+    --md-sys-color-secondary-fixed: rgb(255 219 200);
+    --md-sys-color-on-secondary-fixed: rgb(43 23 9);
+    --md-sys-color-secondary-fixed-dim: rgb(229 191 169);
+    --md-sys-color-on-secondary-fixed-variant: rgb(92 65 48);
+    --md-sys-color-tertiary-fixed: rgb(231 229 172);
+    --md-sys-color-on-tertiary-fixed: rgb(29 29 0);
+    --md-sys-color-tertiary-fixed-dim: rgb(203 201 146);
+    --md-sys-color-on-tertiary-fixed-variant: rgb(73 73 30);
+    --md-sys-color-surface-dim: rgb(25 18 13);
+    --md-sys-color-surface-bright: rgb(65 55 49);
+    --md-sys-color-surface-container-lowest: rgb(20 13 8);
+    --md-sys-color-surface-container-low: rgb(34 26 21);
+    --md-sys-color-surface-container: rgb(38 30 25);
+    --md-sys-color-surface-container-high: rgb(49 40 35);
+    --md-sys-color-surface-container-highest: rgb(61 51 45);
+  }
+body{
+    background-color: var(--md-sys-color-background);
+    font-family: var(--md-ref-typeface-mono);
+}
+.testContainer {
+    overflow: auto; /* Updated from 'scroll' to 'auto' */
+    margin: 2%;
+    border-radius: 20px;
+    z-index: -11;
+    display: flex;
+    height: 88vh; /* Adjust as needed */
+}
+
+.question, .editorContainer, .output{
+    color: var(--md-sys-color-on-background);
+    padding: 20px;
+    overflow: auto;
+    border-radius: 20px;
+    overflow: auto;
+}
+.question {
+    flex: 1 0 45%;
+    margin-right: 5px;
+}
+
+.editor-output {
+    flex: 1 0 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.editorContainer {
+    flex: 0 1 70%;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    background-color: var(--md-sys-color-surface-container-high);
+    padding: 5px;
+}
+#editor {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+.output {
+    flex: 0 1 30%;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: var(--md-sys-color-surface-container-high);
+}
+
