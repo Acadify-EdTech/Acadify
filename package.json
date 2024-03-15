@@ -2,6 +2,7 @@
   "dependencies": {
     "@material/web": "^1.2.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "ace-builds": "^1.32.7",
     "express": "^4.18.2",
     "jquery": "^3.7.1",
     "nodeman": "^1.1.2",
