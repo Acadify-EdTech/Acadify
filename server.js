@@ -24,6 +24,10 @@ app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'contact.html'));
 });
 
+app.get('/quizportal',(req,res)=>{
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'quizportal.html'));
+});
+
 // Add more routes for other HTML files as needed
 
 // Start the server
