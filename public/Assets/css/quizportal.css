@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --md-ref-typeface-brand: 'Open Sans';
+    --md-ref-typeface-plain: system-ui;
+    --md-ref-typeface-mono: 'Roboto Mono';
+    font-family: var(--md-ref-typeface-plain);
+    --md-text-button-icon-size: 1.3rem;
+}
+.quizformContainer {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgb(160, 74, 218);
+    padding: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(194, 161, 226);
+    margin-bottom: 40px;
+}
+
+label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: rgb(194, 161, 226);
+    text-transform: capitalize;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: rgb(194, 161, 226);
+    color: black;
+    font-size: 14px;
+
+}
+
+.btn {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(77, 36, 104);
+    border: none;
+    border-radius: 10px;
+    color: rgb(194, 161, 226);
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.btn:hover {
+    background-color: rgb(115, 49, 177);
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    background-color: violet;
+}
+
+.hide {
+    display: none;
+}
+
+.timer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.timer .progress {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 3px solid violet;
+}
+
+.timer .progress .progress-bar {
+    width: 50%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background: linear-gradient(to right, rgb(137, 64, 167), rgb(236, 134, 236));
+    transition: 1s linear;
+}
+
+.timer .progress .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(77, 36, 104);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.question-wrapper .number {
+    color: violet;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.question-wrapper .number .total {
+    color: white;
+    font-size: 18px;
+}
+
+.question-wrapper .question {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.answer-wrapper .answer {
+    width: 100%;
+    height: 60px;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    border: 3px solid violet;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+.answer .checkbox {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 50%;
+    border: 3px solid violet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.answer .checkbox .icon {
+    opacity: 0;
+}
+
+.answer:hover .checkbox,
+.answer.selected .checkbox {
+    background-color: violet;
+    border-color: violet;
+}
+
+.answer.selected .checkbox .icon {
+    opacity: 1;
+}
+
+.answer.correct {
+    border-color: #0cef2a;
+}
+
+.answer.wrong {
+    border-color: #ff0000;
+}
+
+.question-wrapper,
+.answer-wrapper {
+    margin-bottom: 50px;
+}
+
+.btn.next {
+    /*displays when answer submitt*/
+    display: none;
+}
+
+.end-screen .score {
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.end-screen .score-text {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 120px;
+}
+
+@media(max-width:468) {
+    .quizformContainer {
+        min-height: 100vh;
+        max-height: 100%;
+        border-radius: 0;
+    }
+}

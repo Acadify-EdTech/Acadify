@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/bundle.js"></script>
+  <script src="/assets/js/jQuery.js"></script>
+  <link rel="stylesheet" href="./assets/css/quizportal.css">
+  <link rel="stylesheet" href="./assets/css/pallette/light.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="/assets/js/quizportal.js"></script>
+  <title>Quiz</title>
+</head>
+<body>
+    <!---quiz interface-->
+    <!--basics of interface-->
+    <div class="bodyContainer">
+        <div class="quizformContainer">
+            <div class="start-screen">
+                <h1 class="heading">Quiz</h1>
+                <div class="settings">
+                    <label for="num-questions">Number of Questions</label>
+                    <select name="" id="num-questions">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                    </select>
+                    <label for="category">Select Category</label>
+                    <select name="" id="category">
+                        <option value="" >Any Category</option>
+                        <option value="9">General Knowledge</option>
+                        <option value="10">C/C++</option>
+                        <option value="11">Java</option>
+                        <option value="12">HTML</option>
+                        <option value="13">CSS</option>
+                        <option value="14">JavaScript</option>
+                        <option value="15">Networking</option>
+                        <option value="16">Software Engineering</option>
+                        <option value="17">Linux </option>
+                        <option value="18">Unix</option>
+                        <option value="19">Shell Scripting</option>
+                    </select>
+                    <label for="difficulty">Level Of Difficulty</label>
+                    <select name="" id="difficulty">
+                        <option value="">Any Difficulty</option>
+                        <option value="easy">Beginner</option>
+                        <option value="medium">Intermediate</option>
+                        <option value="hard">Advanced</option>
+                    </select>
+                    <label for="time">Select Time per Question</label>
+                    <select name="" id="time">
+                        <option value="10">10 Seconds</option>
+                        <option value="15">15 Seconds</option>
+                        <option value="20">20 Seconds</option>
+                        <option value="25">25 Seconds</option>
+                        <option value="30">30 Seconds</option>
+                        <option value="40">40 Seconds</option>
+                        <option value="60">60 Seconds</option>
+                    </select>
+                </div>
+                <button class="btn">Start Quiz</button>
+            </div>
+            <div class="quiz hide">
+                <div class="timer">
+                    <div class="progress">
+                        <div class="progress-bar"></div>
+                        <spna class="progress-text">50</spna>
+                    </div>
+                </div>
+                <div class="question-wrapper">
+                    <div class="number">
+                        Question <span class="current">1</span><span class="total">/10</span>
+                    </div>
+                    <div class="question">This is the question</div>
+                </div>
+                <div class="answer-wrapper">
+                    <div class="answer selected">
+                        <span class="text">answers</span>
+                        <span class="checkbox">
+                            <span class="icon">✓</span>
+                        </span>
+                    </div>
+                    <div class="answer correct">
+                        <span class="text">answers</span>
+                        <span class="checkbox">
+                            <span class="icon">✓</span>
+                        </span>
+                    </div>
+                    <div class="answer wrong">
+                        <span class="text">answers</span>
+                        <span class="checkbox">
+                            <span class="icon">✓</span>
+                        </span>
+                    </div>
+                </div>
+                <button class="btn submit" disabled>Submit</button>
+                <button class="btn next">Next</button>
+            </div>
+            <div class="end-screen hide">
+                <h1 class="heading">Quiz</h1>
+                <div class="score">
+                    <span class="score-text">Your Score: </span>
+                    <div>
+                        <span class="final-score">0</span>
+                        <span class="total-score">/ 10</span>
+                    </div>
+                    <button class="btn restart">Restart Quiz</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
