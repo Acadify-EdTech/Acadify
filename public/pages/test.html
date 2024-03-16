@@ -18,56 +18,6 @@
 <body class="dark">
     <div class="testContainer">
         <div class="question">
-            <h1>Palindrome Checker</h1>
-
-            <h2>Problem</h2>
-            <p>The program will determine whether a given string is a palindrome.</p>
-
-            <h2>Language</h2>
-            <p>Python (This solution can be easily adapted to other languages as well)</p>
-
-            <h2>Input</h2>
-            <p>The input will be a string containing text, letters, numbers, or a combination of these.</p>
-
-            <h2>Output</h2>
-            <p>The program will print a message indicating whether the input string is a palindrome or not.</p>
-
-            <h2>Sample Input</h2>
-
-            <table style="width:100%">
-                <tr>
-                    <th>Input</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>race car</td>
-                    <td>race car is a palindrome</td>
-                </tr>
-                <tr>
-                    <td>madam</td>
-                    <td>madam is a palindrome</td>
-                </tr>
-                <tr>
-                    <td>hello</td>
-                    <td>hello is not a palindrome</td>
-                </tr>
-                <tr>
-                    <td>12321</td>
-                    <td>12321 is a palindrome</td>
-                </tr>
-                <tr>
-                    <td>Race Car</td>
-                    <td>Race Car is a palindrome</td>
-                </tr>
-            </table>
-
-            <h2>Constraints</h2>
-            <ul>
-                <li>The input string can be of any length.</li>
-                <li>The program should treat alphanumeric characters (letters and numbers) case-insensitively (e.g.,
-                    "Race Car" is considered a palindrome).</li>
-                <li>Non-alphanumeric characters (punctuation, spaces, etc.) should be ignored.</li>
-            </ul>
         </div>
         <div class="editor-output">
             <div class="editorContainer">
@@ -96,37 +46,6 @@ int main() {
             </div>
         </div>
     </div>
-    <script>
-        jQuery(document).ready(function () {
-            jQuery('#run').click(function () {
-                var code = ace.edit("editor").getValue();
-                // Show the progress indicator
-                jQuery('md-linear-progress').show();
-
-                jQuery.ajax({
-                    type: 'POST',
-                    url: '/run',
-                    data: { code: code },
-                    success: function (data) {
-                        // Hide the progress bar
-                        jQuery('md-linear-progress').hide();
-
-                        // Check if the response starts with "Compilation error"
-                        if (data.startsWith('Compilation error')) {
-                            // Handle the compiler error
-                            console.error(data);
-                        } else {
-                            jQuery('.outputAnswer').text(data);
-                        }
-                    },
-                    error: function () {
-                        // Hide the progress bar
-                        jQuery('md-linear-progress').hide();
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

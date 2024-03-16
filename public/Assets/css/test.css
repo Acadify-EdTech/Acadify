@@ -115,3 +115,12 @@ md-linear-progress {
 md-filled-tonal-icon-button {
     margin: 5px;
 }
+
+.output.outputError {
+    color: var(--md-sys-color-error);
+}
+
+.output.outputSuccess {
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-background);
+}
