@@ -71,42 +71,62 @@
         </div>
         <div class="editor-output">
             <div class="editorContainer">
-                <div id="editor"># Write your code here</div>
+                <div id="editor"><pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Your code here
+}</pre>
+                </div>
                 <div class="buttonContainer">
-                    <md-filled-tonal-icon-button id="run"><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></md-icon></md-filled-tonal-icon-button>
-                    <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg></md-icon></md-filled-tonal-icon-button>
+                    <md-filled-tonal-icon-button id="run"><md-icon><svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+                            </svg></md-icon></md-filled-tonal-icon-button>
+                    <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                            </svg></md-icon></md-filled-tonal-icon-button>
                 </div>
             </div>
             <div class="output"><md-linear-progress four-color indeterminate></md-linear-progress>
-            <div class="outputAnswer"></div>
+                <div class="outputAnswer"></div>
             </div>
         </div>
     </div>
-<script>
-    jQuery(document).ready(function() {
-    jQuery('#run').click(function() {
-        var code = ace.edit("editor").getValue();
- // Show the progress indicator
- jQuery('md-linear-progress').show();
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#run').click(function () {
+                var code = ace.edit("editor").getValue();
+                // Show the progress indicator
+                jQuery('md-linear-progress').show();
 
-        jQuery.ajax({
-            type: 'POST',
-            url: '/run',
-            data: { code: code },
-            success: function(data) {
-            // Hide the progress bar
-            jQuery('md-linear-progress').hide();
+                jQuery.ajax({
+                    type: 'POST',
+                    url: '/run',
+                    data: { code: code },
+                    success: function (data) {
+                        // Hide the progress bar
+                        jQuery('md-linear-progress').hide();
 
-            jQuery('.outputAnswer').text(data);
-        },
-        error: function() {
-            // Hide the progress bar
-            jQuery('md-linear-progress').hide();
-        }
+                        // Check if the response starts with "Compilation error"
+                        if (data.startsWith('Compilation error')) {
+                            // Handle the compiler error
+                            console.error(data);
+                        } else {
+                            jQuery('.outputAnswer').text(data);
+                        }
+                    },
+                    error: function () {
+                        // Hide the progress bar
+                        jQuery('md-linear-progress').hide();
+                    }
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 </body>
 
 </html>

@@ -37,9 +37,15 @@ app.post('/run', function(req, res) {
   fs.writeFileSync('temp.cpp', req.body.code);
 
   const compile = spawn('g++', ['temp.cpp']);
+  let compileError = '';
+
+  compile.stderr.on('data', function (data) {
+    compileError += data.toString();
+  });
+
   compile.on('close', function (code) {
     if (code !== 0) {
-      return res.send('Compilation error');
+      return res.send('Compilation error: ' + compileError);
     }
 
     const run = spawn('./a.out');
