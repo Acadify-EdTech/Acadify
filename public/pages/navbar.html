@@ -19,8 +19,32 @@
       <nav>
         <ul class="links navbarUL">
           <md-outlined-button class="navButton" href="/">Home</md-outlined-button>
-          <md-outlined-button class="navButton">Products</md-outlined-button>
-          <md-outlined-button class="navButton">Solutions</md-outlined-button>
+
+          <span style="position: relative">
+            <md-outlined-button id="root-anchor" class="navButton">Solutions</md-outlined-button>
+            <md-menu has-overflow id="root-menu" anchor="root-anchor">
+              <md-sub-menu>
+                <md-menu-item slot="item">
+                  <div slot="headline">Code Editor</div>
+                  <md-icon slot="end"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M400-280v-400l200 200-200 200Z"/></svg></md-icon>
+                </md-menu-item>
+                <md-menu slot="menu">
+                  <md-menu-item href="/codeEditorExam">
+                    <div slot="headline">Code Editor Exam</div>
+                  </md-menu-item>
+                  <md-menu-item href="/codeEditorPractice">
+                    <div slot="headline">Code Editor Practice</div>
+                  </md-menu-item>
+                </md-menu>
+              </md-sub-menu>
+              <md-menu-item>
+                <div slot="headline">Solution 2</div>
+              </md-menu-item>
+              <md-menu-item>
+                <div slot="headline">Solution 3</div>
+              </md-menu-item>
+            </md-menu>
+          </span>
 
 
           <!--testing of quiz interface -->
@@ -28,9 +52,6 @@
 
           <!--testing of dashboard-->
           <md-outlined-button class="navButton" href="/dashboard">Dashboard</md-outlined-button>
-
-
-          <md-outlined-button class="navButton" href="/test">Solutions</md-outlined-button>
           <md-outlined-button class="navButton" href="/about">About</md-outlined-button>
           <md-outlined-button class="navButton" href="/contact">Contact</md-outlined-button>
         </ul>
@@ -43,12 +64,16 @@
     </div>
 
     <div class="menuDiv" id="MenuDiv">
-      <li class="navbarLI"><md-text-button href="/" style="margin-top: 10px;" has-icon>Home<md-icon slot="icon">home</md-icon></md-text-button></li>
+      <li class="navbarLI"><md-text-button href="/" style="margin-top: 10px;" has-icon>Home<md-icon
+            slot="icon">home</md-icon></md-text-button></li>
       <li class="navbarLI"><md-text-button>Products<md-icon slot="icon">more</md-icon></md-text-button></li>
       <li class="navbarLI"><md-text-button>Solutions<md-icon slot="icon">read_more</md-icon></md-text-button></li>
-      <li class="navbarLI"><md-text-button href="/about">About<md-icon slot="icon">person</md-icon></md-text-button></li>
-      <li class="navbarLI"><md-text-button href="/contact">Contact<md-icon slot="icon">call</md-icon></md-text-button></li>
-      <li class="navbarLI"><md-filled-button class="signin-button" style="margin-bottom: 10px;">Get started</md-filled-button></li>
+      <li class="navbarLI"><md-text-button href="/about">About<md-icon slot="icon">person</md-icon></md-text-button>
+      </li>
+      <li class="navbarLI"><md-text-button href="/contact">Contact<md-icon slot="icon">call</md-icon></md-text-button>
+      </li>
+      <li class="navbarLI"><md-filled-button class="signin-button" style="margin-bottom: 10px;">Get
+          started</md-filled-button></li>
     </div>
   </div>
 </body>
