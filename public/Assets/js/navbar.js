@@ -1,4 +1,5 @@
 //FIXME #15 
+
 jQuery(document).ready(function() {
     jQuery('.toggleBtn').on('click', function() {
         var menuDiv = jQuery("#MenuDiv");
@@ -21,5 +22,17 @@ jQuery(document).ready(function() {
                 jQuery(this).replaceWith(html);
             }
         });
+
 });
 
+jQuery(document).ready(function() {
+    if (window.location.pathname === '/codeEditor') {
+        var html = jQuery('#solutions').prop('outerHTML').replace('md-outlined-button', 'md-filled-button');
+        jQuery('#solutions').replaceWith(html);
+    }
+
+    const anchorEl = jQuery('#root-anchor');
+    const menuEl = jQuery('#root-menu');
+
+    anchorEl.click(() => { menuEl.prop('open', !menuEl.prop('open')); });
+});

@@ -21,8 +21,12 @@ app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'pages', 'about.html'));
 });
 
-app.get('/test', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'test.html'));
+app.get('/codeEditorExam', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'codeEditorExam.html'));
+});
+
+app.get('/codeEditorPractice', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'codeEditorPractice.html'));
 });
 
 app.get('/contact', (req, res) => {

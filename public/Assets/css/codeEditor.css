@@ -162,7 +162,14 @@ md-linear-progress {
     justify-content: space-between;
     align-items: center;
 }
-
+.userContainer{
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 12px;
+}
 .timer {
     background-color: var(--md-sys-color-secondary-container);
     padding: 10px 20px;
@@ -213,13 +220,12 @@ md-tabs {
 }
 
 .PrevNextButton {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
     justify-content: space-between;
-    padding: 5px 5px;
 }
 
 @media screen and (max-width: 930px) {
