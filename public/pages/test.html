@@ -2,50 +2,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/assets/js/bundle.js"></script>
-    <script src="/assets/js/jQuery.js"></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="/assets/js/test.js"></script>
-    <script src="/assets/js/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" href="./assets/css/test.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <title>Test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/assets/js/bundle.js"></script>
+  <script src="/assets/js/jQuery.js"></script>
+  <script src="/assets/js/test.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="/assets/js/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/assets/js/ace-builds/src/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" href="/assets/css/test.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <title>Test</title>
 </head>
 
-<body class="dark">
-    <div class="testContainer">
-        <div class="question">
-        </div>
-        <div class="editor-output">
-            <div class="editorContainer">
-                <div id="editor"><pre>#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    // Your code here
-}</pre>
-                </div>
-                <div class="buttonContainer">
-                    <md-filled-tonal-icon-button id="run"><md-icon><svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                <path
-                                    d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-                            </svg></md-icon></md-filled-tonal-icon-button>
-                    <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                <path
-                                    d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-                            </svg></md-icon></md-filled-tonal-icon-button>
-                </div>
-            </div>
-            <div class="output"><md-linear-progress four-color indeterminate></md-linear-progress>
-                <div class="outputAnswer"></div>
-            </div>
-        </div>
+<body>
+  <div class="testContainer">
+    <div class="timerContainer">
+      <div class="timer"></div>
     </div>
+    <div class="buttonContainer">
+      <md-filled-tonal-icon-button id="run"><md-icon><svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+          </svg></md-icon></md-filled-tonal-icon-button>
+      <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          </svg></md-icon></md-filled-tonal-icon-button>
+    </div>
+    <div class="submitButton">
+      <md-filled-tonal-button>End Test</md-filled-tonal-button>
+    </div>
+    <div class="question">
+      <div class="PrevNextButton">
+        <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg></md-icon></md-filled-tonal-icon-button>
+        <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></md-icon></md-filled-tonal-icon-button>
+      </div>
+    </div>
+    <div class="editor-output">
+      <div class="editorContainer">
+        <div id="editor"><pre>#include &lt;iostream&gt;
+using namespace std;
+  
+int main() {
+  // Your code here
+  
+  return 0;
+}</pre></div>
+      </div>
+
+      <div class="output">
+        <md-linear-progress four-color indeterminate></md-linear-progress>
+        <md-tabs>
+          <md-primary-tab id="testcases-tab" aria-controls="testcases-panel">
+            Test Cases
+          </md-primary-tab>
+          <md-primary-tab id="output-tab" aria-controls="output-panel">
+            Output
+          </md-primary-tab>
+          <md-primary-tab id="custominput-tab" aria-controls="custominput-panel">
+            Custom Input
+          </md-primary-tab>
+        </md-tabs>
+
+        <div id="testcases-panel" role="tabpanel" aria-labelledby="testcases-tab">
+          
+        </div>
+        <div id="output-panel" role="tabpanel" aria-labelledby="output-tab" hidden>
+          <div class="outputAnswer"></div>
+        </div>
+        <div id="custominput-panel" role="tabpanel" aria-labelledby="custom-input-tab" hidden>
+          <md-outlined-text-field type="textarea" label="Custom Input" rows="4" id="customInput">
+          </md-outlined-text-field>
+        </div>
+      </div>
+  </div>
+  </div>
 </body>
 
 </html>

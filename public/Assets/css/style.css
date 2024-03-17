@@ -5,7 +5,7 @@
     --md-ref-typeface-brand: 'Open Sans';
     --md-ref-typeface-plain: system-ui;
     --md-ref-typeface-mono: 'Roboto Mono';
-    font-family: var(--md-ref-typeface-plain);
+    font-family: var(--md-ref-typeface-mono);
     --md-text-button-icon-size: 1.3rem;
 }
 

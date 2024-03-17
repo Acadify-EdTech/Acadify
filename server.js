@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const { spawn } = require('child_process');
+const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -33,10 +34,15 @@ app.get('/quizportal',(req,res)=>{
 });
 
 app.post('/run', function(req, res) {
-  const fs = require('fs');
-  fs.writeFileSync('temp.cpp', req.body.code);
+  const tempDir = 'temp';
+  if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir);
+  }
 
-  const compile = spawn('g++', ['temp.cpp']);
+  const tempFilePath = path.join(tempDir, 'temp.cpp');
+  fs.writeFileSync(tempFilePath, req.body.code);
+
+  const compile = spawn('g++', [tempFilePath]);
   let compileError = '';
 
   compile.stderr.on('data', function (data) {
@@ -45,17 +51,42 @@ app.post('/run', function(req, res) {
 
   compile.on('close', function (code) {
     if (code !== 0) {
+      fs.unlinkSync(tempFilePath); // Delete temp.cpp file
       return res.send('Compilation error: ' + compileError);
+    }
+
+    // If no custom input is provided, return an error
+    if (!req.body.customInput) {
+      return res.status(400).send('No input provided');
     }
 
     const run = spawn('./a.out');
     let output = '';
 
+    // Write the custom input to the standard input of the child process
+    run.stdin.write(req.body.customInput);
+    run.stdin.end();
+
     run.stdout.on('data', function (data) {
       output += data.toString();
     });
 
+    // Set a time limit for the execution of the child process
+    const timeLimit = 5000; // 5 seconds
+    const timer = setTimeout(function () {
+      run.kill(); // Stop the execution of the child process
+      res.status(408).send('Execution timed out'); // Send a 408 status code (Request Timeout)
+    }, timeLimit);
+
     run.on('close', function (code) {
+      clearTimeout(timer); // Clear the timer
+      if (fs.existsSync(tempFilePath)) { // Check if temp.cpp file exists before deleting
+        fs.unlinkSync(tempFilePath);
+      }
+      const aOutPath = path.join(tempDir, 'a.out');
+      if (fs.existsSync(aOutPath)) { // Check if a.out file exists before deleting
+        fs.unlinkSync(aOutPath);
+      }
       res.send(output);
     });
   });

@@ -1,4 +1,4 @@
-:root{
+:root {
     --md-sys-color-primary: rgb(255 182 137);
     --md-sys-color-surface-tint: rgb(255 182 137);
     --md-sys-color-on-primary: rgb(81 35 0);
@@ -48,79 +48,196 @@
     --md-sys-color-surface-container: rgb(38 30 25);
     --md-sys-color-surface-container-high: rgb(49 40 35);
     --md-sys-color-surface-container-highest: rgb(61 51 45);
-  }
-body{
+    font-family: var(--md-ref-typeface-mono);
+    --md-primary-tab-container-color: var(--md-sys-color-surface-container-high);
+    --md-primary-tab-container-height: 30px;
+    --md-primary-tab-active-indicator-height: 1px;
+    --md-primary-tab-label-text-line-height: 40px;
+    --md-primary-tab-label-text-font: var(--md-ref-typeface-mono);
+
+    --md-outlined-text-field-border-color: var(--md-sys-color-outline);
+    --md-outlined-text-field-input-text-font: var(--md-ref-typeface-mono);
+    --md-outlined-text-field-label-text-font: var(--md-ref-typeface-mono);
+    --md-outlined-text-field-top-space: 10px;
+
+    --md-tonal-button-label-text-font: var(--md-ref-typeface-mono);
+    --md-tonal-button-label-color: var(--md-sys-color-on-background);
+    ;
+}
+
+body {
     background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
     font-family: var(--md-ref-typeface-mono);
 }
+
 .testContainer {
-    overflow: auto; /* Updated from 'scroll' to 'auto' */
-    margin: 2%;
+    padding: 5px 10px 0 10px;
     border-radius: 20px;
     z-index: -11;
     display: flex;
-    height: 88vh; /* Adjust as needed */
+    height: 97vh;
+    overflow: auto;
 }
+
 md-linear-progress {
     display: none;
     margin: 10px;
 }
-.question, .editorContainer, .output{
+
+.question,
+.editorContainer,
+.output {
     color: var(--md-sys-color-on-background);
     padding: 10px 15px;
     overflow: auto;
     border-radius: 20px;
-    overflow: auto;
 }
+
 .question {
+    position: relative;
     flex: 1 0 45%;
     margin-right: 5px;
+    background-color: var(--md-sys-color-surface-container-low);
+    margin-top: 55px;
 }
 
 .editor-output {
     flex: 1 0 45%;
     display: flex;
     flex-direction: column;
+    margin-top: 55px;
+    overflow: auto;
+}
+
+.editorContainer,
+#editor,
+.output {
+    position: relative;
+    background-color: var(--md-sys-color-surface-container-high);
 }
 
 .editorContainer {
-    position: relative;
     flex: 0 1 70%;
     margin-bottom: 5px;
     margin-left: 5px;
-    background-color: var(--md-sys-color-surface-container-high);
-    padding: 5px;
+    padding: 10px;
 }
+
 #editor {
-    position: relative;
     height: 100%;
     width: 100%;
     border-radius: 20px;
-    background-color: var(--md-sys-color-surface-container-high);
 }
+
 .output {
     flex: 0 1 30%;
     margin-top: 5px;
     margin-left: 5px;
-    background-color: var(--md-sys-color-surface-container-high);
+    padding: 0;
+}
+
+.buttonContainer,
+.submitButton {
+    position: absolute;
+    right: 0;
+    display: flex;
 }
 
 .buttonContainer {
+    left: 0;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0px 18px;
+}
+
+.submitButton {
+    margin: 5px 12px;
+}
+
+.timerContainer {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    left: 0;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer {
+    background-color: var(--md-sys-color-secondary-container);
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 5px 5px 5px 12px;
 }
 
 md-filled-tonal-icon-button {
     margin: 5px;
 }
 
-.output.outputError {
+.outputAnswer {
+    overflow: auto;
+}
+
+.outputAnswer.outputError {
     color: var(--md-sys-color-error);
 }
 
-.output.outputSuccess {
-    background-color: var(--md-sys-color-surface-container-high);
+.outputAnswer.outputSuccess {
     color: var(--md-sys-color-on-background);
+}
+
+pre {
+    margin: 10px 20px;
+    font-size: 1.2em;
+}
+
+#customInput {
+    width: 97%;
+    margin: 10px;
+    display: flex;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+md-tabs {
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.PrevNextButton {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px;
+}
+
+@media screen and (max-width: 930px) {
+    .testContainer {
+        flex-direction: column;
+        height: 188vh;
+    }
+    .question{
+        margin-right: 0;
+    }
+    .editor-output{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .editorContainer, .output{
+        margin-left: 0;
+    }
+    .infoButton{
+        display: none;
+    }
 }
