@@ -27,6 +27,10 @@ app.get('/contact', (req, res) => {
 app.get('/quizportal',(req,res)=>{
   res.sendFile(path.join(__dirname, 'public', 'pages', 'quizportal.html'));
 });
+//testing of dashboard
+app.get('/dashboard',(req,res)=>{
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'dashboard.html'));
+});
 
 // Add more routes for other HTML files as needed
 
