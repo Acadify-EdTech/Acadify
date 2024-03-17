@@ -37,56 +37,73 @@
       <md-filled-tonal-button>End Test</md-filled-tonal-button>
     </div>
     <div class="question">
+      <div class="questionBody">
+        <h1>Palindrome Checker</h1>
 
-    <h1>Palindrome Checker</h1>
+        <h2>Problem</h2>
+        <p>The program will determine whether a given string is a palindrome.</p>
+    
+        <h2>Language</h2>
+        <p>C++ (This solution can be easily adapted to other languages as well)</p>
+    
+        <h2>Input</h2>
+        <p>The input will be a string containing text, letters, numbers, or a combination of these.</p>
+    
+        <h2>Output</h2>
+        <p>The program will print a message indicating whether the input string is a palindrome or not.</p>
+    
+        <h2>Sample Input</h2>
+    
+        <table style="width:100%">
+          <tr>
+            <th>Input</th>
+            <th>Output</th>
+          </tr>
+          <tr>
+            <td>race car</td>
+            <td>race car is a palindrome</td>
+          </tr>
+          <tr>
+            <td>hello</td>
+            <td>hello is not a palindrome</td>
+          </tr>
+        </table>
+    
+        <h2>Constraints</h2>
+        <ul>
+            <li>The input string can be of any length.</li>
+            <li>The program should treat alphanumeric characters (letters and numbers) case-insensitively (e.g., "Race Car" is considered a palindrome).</li>
+            <li>Non-alphanumeric characters (punctuation, spaces, etc.) should be ignored.</li>
+        </ul>
 
-    <h2>Problem</h2>
-    <p>The program will determine whether a given string is a palindrome.</p>
-
-    <h2>Language</h2>
-    <p>Python (This solution can be easily adapted to other languages as well)</p>
-
-    <h2>Input</h2>
-    <p>The input will be a string containing text, letters, numbers, or a combination of these.</p>
-
-    <h2>Output</h2>
-    <p>The program will print a message indicating whether the input string is a palindrome or not.</p>
-
-    <h2>Sample Input</h2>
-
-    <table style="width:100%">
-      <tr>
-        <th>Input</th>
-        <th>Output</th>
-      </tr>
-      <tr>
-        <td>race car</td>
-        <td>race car is a palindrome</td>
-      </tr>
-      <tr>
-        <td>madam</td>
-        <td>madam is a palindrome</td>
-      </tr>
-      <tr>
-        <td>hello</td>
-        <td>hello is not a palindrome</td>
-      </tr>
-      <tr>
-        <td>12321</td>
-        <td>12321 is a palindrome</td>
-      </tr>
-      <tr>
-        <td>Race Car</td>
-        <td>Race Car is a palindrome</td>
-      </tr>
-    </table>
-
-    <h2>Constraints</h2>
-    <ul>
-        <li>The input string can be of any length.</li>
-        <li>The program should treat alphanumeric characters (letters and numbers) case-insensitively (e.g., "Race Car" is considered a palindrome).</li>
-        <li>Non-alphanumeric characters (punctuation, spaces, etc.) should be ignored.</li>
-    </ul>
+        <h2>Test Cases</h2>
+        <table style="width:100%">
+          <tr>
+            <th>Input</th>
+            <th>Output</th>
+          </tr>
+          <tr>
+            <td>race car</td>
+            <td>race car is a palindrome</td>
+          </tr>
+          <tr>
+            <td>madam</td>
+            <td>madam is a palindrome</td>
+          </tr>
+          <tr>
+            <td>hello</td>
+            <td>hello is not a palindrome</td>
+          </tr>
+          <tr>
+            <td>12321</td>
+            <td>12321 is a palindrome</td>
+          </tr>
+          <tr>
+            <td>A man, a plan, a canal: Panama</td>
+            <td>A man, a plan, a canal: Panama is a palindrome (considering only alphanumeric characters)</td>
+          </tr>
+        </table>
+      </div>
       <div class="PrevNextButton">
         <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg></md-icon></md-filled-tonal-icon-button>
         <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></md-icon></md-filled-tonal-icon-button>
@@ -95,12 +112,47 @@
     <div class="editor-output">
       <div class="editorContainer">
         <div id="editor"><pre>#include &lt;iostream&gt;
+#include &lt;cctype&gt; // for isalnum function
+#include &lt;string&gt;
+#include &lt;algorithm&gt; // for reverse function
+
 using namespace std;
-  
+
+bool is_palindrome(const string& s) {
+    // Removing non-alphanumeric characters and converting to lowercase
+    string clean_s;
+    for (char c : s) {
+        if (isalnum(c)) {
+            clean_s += tolower(c);
+        }
+    }
+    // Checking if the cleaned string is equal to its reverse
+    return equal(clean_s.begin(), clean_s.begin() + clean_s.size()/2, clean_s.rbegin());
+}
+
+void palindrome_checker(const string& input_str) {
+    if (is_palindrome(input_str)) {
+        cout << input_str << " is a palindrome" << endl;
+    } else {
+        cout << input_str << " is not a palindrome" << endl;
+    }
+}
+
 int main() {
-  // Your code here
-  
-  return 0;
+    // Test cases
+    string test_cases[] = {
+        "race car",
+        "madam",
+        "hello",
+        "12321",
+        "A man, a plan, a canal: Panama"
+    };
+
+    for (const string& test_case : test_cases) {
+        palindrome_checker(test_case);
+    }
+
+    return 0;
 }</pre></div>
       </div>
 

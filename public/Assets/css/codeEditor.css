@@ -48,6 +48,7 @@
     --md-sys-color-surface-container: rgb(38 30 25);
     --md-sys-color-surface-container-high: rgb(49 40 35);
     --md-sys-color-surface-container-highest: rgb(61 51 45);
+
     font-family: var(--md-ref-typeface-mono);
     --md-primary-tab-container-color: var(--md-sys-color-surface-container-high);
     --md-primary-tab-container-height: 30px;
@@ -60,15 +61,52 @@
     --md-outlined-text-field-label-text-font: var(--md-ref-typeface-mono);
     --md-outlined-text-field-top-space: 10px;
 
-    --md-tonal-button-label-text-font: var(--md-ref-typeface-mono);
-    --md-tonal-button-label-color: var(--md-sys-color-on-background);
-    ;
+    --md-filled-tonal-button-label-text-font: var(--md-ref-typeface-mono);
+    --md-filled-tonal-button-label-color: var(--md-sys-color-on-background);
+
+    --md-filled-tonal-icon-button-icon-size: 19px;
 }
 
 body {
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
     font-family: var(--md-ref-typeface-mono);
+}
+
+h1 {
+    font-size: 1.6em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+p,
+td,
+li {
+    font-size: 0.9em;
+}
+
+table {
+    width: 100%;
+    /* Make the table take up the full width of its parent */
+    border-collapse: collapse;
+    /* Collapse borders into a single border */
+}
+
+th,
+td {
+    padding: 10px;
+    /* Add some padding to table cells */
+    text-align: left;
+    /* Align text to the left */
+    border: 1px solid var(--md-sys-color-outline-variant);
+    /* Add a border to the bottom of each cell */
+}
+
+tr:nth-child(even) {
+    background-color: var(--md-sys-color-surface-container);
+    /* Add a grey background color to every other row */
 }
 
 .testContainer {
@@ -100,6 +138,8 @@ md-linear-progress {
     margin-right: 5px;
     background-color: var(--md-sys-color-surface-container-low);
     margin-top: 55px;
+    overflow: auto;
+    padding: 0;
 }
 
 .editor-output {
@@ -155,6 +195,7 @@ md-linear-progress {
     margin: 5px 12px;
 }
 
+
 .timerContainer {
     position: absolute;
     left: 0;
@@ -162,7 +203,8 @@ md-linear-progress {
     justify-content: space-between;
     align-items: center;
 }
-.userContainer{
+
+.userContainer {
     position: absolute;
     left: 0;
     display: flex;
@@ -170,6 +212,7 @@ md-linear-progress {
     align-items: center;
     margin-left: 12px;
 }
+
 .timer {
     background-color: var(--md-sys-color-secondary-container);
     padding: 10px 20px;
@@ -183,6 +226,7 @@ md-filled-tonal-icon-button {
 
 .outputAnswer {
     overflow: auto;
+    margin: 0px 5px;
 }
 
 .outputAnswer.outputError {
@@ -220,12 +264,18 @@ md-tabs {
 }
 
 .PrevNextButton {
+    background-color: var(--md-sys-color-surface-container-low);
     position: sticky;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
     justify-content: space-between;
+    padding: 2px;
+}
+
+.questionBody {
+    margin: 10px 30px;
 }
 
 @media screen and (max-width: 930px) {
@@ -233,17 +283,22 @@ md-tabs {
         flex-direction: column;
         height: 188vh;
     }
-    .question{
+
+    .question {
         margin-right: 0;
     }
-    .editor-output{
+
+    .editor-output {
         margin-top: 10px;
         margin-bottom: 10px;
     }
-    .editorContainer, .output{
+
+    .editorContainer,
+    .output {
         margin-left: 0;
     }
-    .infoButton{
+
+    .infoButton {
         display: none;
     }
 }
