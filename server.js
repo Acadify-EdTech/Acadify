@@ -36,6 +36,10 @@ app.get('/contact', (req, res) => {
 app.get('/quizportal',(req,res)=>{
   res.sendFile(path.join(__dirname, 'public', 'pages', 'quizportal.html'));
 });
+//testing of dashboard
+app.get('/dashboard',(req,res)=>{
+  res.sendFile(path.join(__dirname, 'public', 'pages', 'dashboard.html'));
+});
 
 app.post('/run', function(req, res) {
   const tempDir = 'temp';
