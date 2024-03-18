@@ -34,8 +34,19 @@
           </svg></md-icon></md-filled-tonal-icon-button>
     </div>
     <div class="submitButton">
-      <md-filled-tonal-button>End Test</md-filled-tonal-button>
+      <md-filled-tonal-button id="endTest">End Test</md-filled-tonal-button>
     </div>
+    <md-dialog>
+      <div slot="headline">
+        M3 Dialog title
+      </div>
+      <form slot="content" id="form-id" method="dialog">
+        A simple dialog with free-form content in a custom element.
+      </form>
+      <div slot="actions">
+        <md-text-button form="form-id">Ok</md-text-button>
+      </div>
+    </md-dialog>
     <div class="question">
       <div class="questionBody">
         <h1>Palindrome Checker</h1>
