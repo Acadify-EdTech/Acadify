@@ -8,37 +8,38 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Define routes for each HTML file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'index.html'));
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'about.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'about.html'));
 });
 
 app.get('/codeEditorExam', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'codeEditorExam.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'codeEditorExam.html'));
 });
 
 app.get('/codeEditorPractice', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'codeEditorPractice.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'codeEditorPractice.html'));
 });
 
 app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'contact.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'contact.html'));
 });
 
 app.get('/quizportal',(req,res)=>{
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'quizportal.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'quizportal.html'));
 });
 //testing of dashboard
 app.get('/dashboard',(req,res)=>{
-  res.sendFile(path.join(__dirname, 'public', 'pages', 'dashboard.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser', 'index.html'));
 });
 
 app.post('/run', function(req, res) {
