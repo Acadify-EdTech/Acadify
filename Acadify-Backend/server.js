@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -38,7 +39,7 @@ app.get('/quizportal',(req,res)=>{
 });
 //testing of dashboard
 app.get('/dashboard',(req,res)=>{
-  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'dashboard.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser', 'index.html'));
 });
 
 app.post('/run', function(req, res) {
