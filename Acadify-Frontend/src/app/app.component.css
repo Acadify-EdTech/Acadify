@@ -1,73 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-:root {
-  --md-sys-color-primary: rgb(139 79 37);
-  --md-sys-color-surface-tint: rgb(139 79 37);
-  --md-sys-color-on-primary: rgb(255 255 255);
-  --md-sys-color-primary-container: rgb(255 219 200);
-  --md-sys-color-on-primary-container: rgb(49 19 0);
-  --md-sys-color-secondary: rgb(117 88 70);
-  --md-sys-color-on-secondary: rgb(255 255 255);
-  --md-sys-color-secondary-container: rgb(255 219 200);
-  --md-sys-color-on-secondary-container: rgb(43 23 9);
-  --md-sys-color-tertiary: rgb(97 97 51);
-  --md-sys-color-on-tertiary: rgb(255 255 255);
-  --md-sys-color-tertiary-container: rgb(231 229 172);
-  --md-sys-color-on-tertiary-container: rgb(29 29 0);
-  --md-sys-color-error: rgb(186 26 26);
-  --md-sys-color-on-error: rgb(255 255 255);
-  --md-sys-color-error-container: rgb(255 218 214);
-  --md-sys-color-on-error-container: rgb(65 0 2);
-  --md-sys-color-background: rgb(255 248 245);
-  --md-sys-color-on-background: rgb(34 26 21);
-  --md-sys-color-surface: rgb(255 248 245);
-  --md-sys-color-on-surface: rgb(34 26 21);
-  --md-sys-color-surface-variant: rgb(244 222 211);
-  --md-sys-color-on-surface-variant: rgb(82 68 60);
-  --md-sys-color-outline: rgb(132 116 107);
-  --md-sys-color-outline-variant: rgb(215 194 184);
-  --md-sys-color-shadow: rgb(0 0 0);
-  --md-sys-color-scrim: rgb(0 0 0);
-  --md-sys-color-inverse-surface: rgb(56 46 41);
-  --md-sys-color-inverse-on-surface: rgb(255 237 229);
-  --md-sys-color-inverse-primary: rgb(255 182 137);
-  --md-sys-color-primary-fixed: rgb(255 219 200);
-  --md-sys-color-on-primary-fixed: rgb(49 19 0);
-  --md-sys-color-primary-fixed-dim: rgb(255 182 137);
-  --md-sys-color-on-primary-fixed-variant: rgb(110 56 16);
-  --md-sys-color-secondary-fixed: rgb(255 219 200);
-  --md-sys-color-on-secondary-fixed: rgb(43 23 9);
-  --md-sys-color-secondary-fixed-dim: rgb(229 191 169);
-  --md-sys-color-on-secondary-fixed-variant: rgb(92 65 48);
-  --md-sys-color-tertiary-fixed: rgb(231 229 172);
-  --md-sys-color-on-tertiary-fixed: rgb(29 29 0);
-  --md-sys-color-tertiary-fixed-dim: rgb(203 201 146);
-  --md-sys-color-on-tertiary-fixed-variant: rgb(73 73 30);
-  --md-sys-color-surface-dim: rgb(231 215 207);
-  --md-sys-color-surface-bright: rgb(255 248 245);
-  --md-sys-color-surface-container-lowest: rgb(255 255 255);
-  --md-sys-color-surface-container-low: rgb(255 241 234);
-  --md-sys-color-surface-container: rgb(252 235 226);
-  --md-sys-color-surface-container-high: rgb(246 229 220);
-  --md-sys-color-surface-container-highest: rgb(240 223 215);
 
-  --md-ref-typeface-brand: 'Open Sans';
-  --md-ref-typeface-plain: system-ui;
-  --md-ref-typeface-mono: 'Roboto Mono';
-  font-family: var(--md-ref-typeface-plain);
-  --md-text-button-icon-size: 1.3rem;
-}
-
-
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--md-sys-color-primary-container);
-}
 .sidebar{
   position: fixed;
   top: 0;
@@ -118,7 +49,7 @@ body{
 .sidebar .nav-links::-webkit-scrollbar{
   display: none;
 }
-.sidebar .nav-links li{
+.sidebar .nav-links li {
   position: relative;
   list-style: none;
   transition: all 0.4s ease;
@@ -280,7 +211,9 @@ body{
 }
 .home-section{
   position: relative;
-  background: #E4E9F7;
+  background: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   height: 100vh;
   left: 260px;
   width: calc(100% - 260px);

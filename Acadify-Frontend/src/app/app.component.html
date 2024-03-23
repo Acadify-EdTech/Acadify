@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  
-</head>
-
-<body>
-  <!--dashboard navigator-->
-    <div class="sidebar close" >
-      <div class="logo-details">
-        <!-- <i class='bx bxl-c-plus-plus'></i> -->
-        <span class="logo_name">Acadify</span>
-      </div>
+    <div class="sidebar close" #sidebar>
       <ul class="nav-links">
         <li>
           <a href="#">
@@ -23,7 +11,7 @@
           </ul>
         </li>
         <li>
-          <div class="iocn-link" (click)="toggleSubmenu($event)">
+          <div class="iocn-link">
             <a href="#">
               <i class='bx bx-collection' ></i>
               <span class="link_name">Category</span>
@@ -126,33 +114,9 @@
     </div>
     <section class="home-section">
       <div class="home-content">
-        <i class='bx bx-menu' (click)="toggleSidebar()"  ></i>
-        
+        <i class='bx bx-menu' id="toggleButton" (click)="toggleSidebar()"></i>
+
         <span class="text">Acadify</span>
       </div>
     </section>
     
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      let sidebar = document.querySelector(".sidebar");
-      let sidebarBtn = document.querySelector(".bx-menu");
-      
-      // Event listener for sidebar toggle button
-      sidebarBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
-      });
-
-      // Event listeners for submenu toggle arrows
-      let arrows = document.querySelectorAll(".arrow");
-      arrows.forEach(arrow => {
-        arrow.addEventListener("click", () => {
-          let parent = arrow.parentElement.parentElement;
-          parent.classList.toggle("showMenu");
-        });
-      });
-    });
-  </script>
-
-</body>
-
-</html>
