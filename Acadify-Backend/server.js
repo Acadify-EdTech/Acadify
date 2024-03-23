@@ -69,7 +69,7 @@ app.post('/run', function(req, res) {
       return res.status(400).send('No input provided');
     }
 
-    const run = spawn('./a.out');
+    const run = spawn('./a.exe');
     let output = '';
 
     // Write the custom input to the standard input of the child process
