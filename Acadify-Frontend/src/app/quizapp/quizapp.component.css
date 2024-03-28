@@ -1,0 +1,127 @@
+.quizAppContainer {
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    font-family: var(--md-ref-typeface-mono);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbarContainer {
+    color: var(--md-sys-color-on-surface);
+    font-family: var(--md-ref-typeface-mono);
+    flex: 0 1 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.questionsContainer {
+    flex: 0 1 75%;
+    height: 90vh;
+    border-radius: 20px;
+    margin-right: 5px;
+    overflow: auto;
+}
+
+.jumpContainer {
+    background-color: var(--md-sys-color-surface-container-high);
+    flex: 0 1 25%;
+    height: 90vh;
+    border-radius: 20px;
+    margin-left: 5px;
+    overflow: auto;
+}
+
+.questionNumbers, .instructions{
+    background-color: var(--md-sys-color-surface-container-highest);
+    height: auto;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.instructionContent{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.instructionContent md-filled-icon-button{
+    margin: 0px 25px;
+}
+.PrevNextButton{
+    justify-content: space-between;
+    display: flex;
+    margin: 10px;
+
+}
+
+.questionNumber{
+    margin: 5px;
+}
+.timerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.timer, .endButton, .submitButton {
+    margin: 5px 12px;
+}
+md-switch {
+    margin: 5px 5px;
+    --md-icon-size: 16px;
+}
+.timer {
+    background-color: var(--md-sys-color-secondary-container);
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.clearSelectionBtn{
+    margin: 5px 0px 5px 20px;
+}
+.radio-option {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    background-color: var(--md-sys-color-surface-container);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 40px;
+}
+
+.radio-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-option.selected {
+    background-color: var(--md-sys-color-on-tertiary-custom-variant);
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.question-container, .question-number{
+    margin: 5px 10px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.question-header {
+    display: flex;
+    align-items: start;
+    margin: 10px 40px;
+}
