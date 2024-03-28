@@ -4,12 +4,13 @@ const bodyParser = require('body-parser');
 const { spawn } = require('child_process');
 const fs = require('fs');
 
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'public')));
-app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser')));
+app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser', 'quizapp')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -38,8 +39,8 @@ app.get('/quizportal',(req,res)=>{
   res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'quizportal.html'));
 });
 //testing of dashboard
-app.get('/dashboard',(req,res)=>{
-  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser', 'index.html'));
+app.get('/dashboard2',(req,res)=>{
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser','quizapp', 'index.html'));
 });
 
 app.post('/run', function(req, res) {
@@ -100,6 +101,7 @@ app.post('/run', function(req, res) {
     });
   });
 });
+
 // Add more routes for other HTML files as needed
 
 // Start the server
