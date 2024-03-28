@@ -10,7 +10,8 @@ const port = process.env.PORT || 3000;
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'public')));
-app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser', 'quizapp')));
+app.use(express.static(path.join(__dirname,'..', 'Acadify-Frontend/dist/acadify-frontend/browser')));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -36,11 +37,12 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/quizportal',(req,res)=>{
-  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'quizportal.html'));
+  res.sendFile(path.join(__dirname,'..', 'Acadify-Frontend/dist/acadify-frontend/browser/index.html'));
 });
+
 //testing of dashboard
 app.get('/dashboard2',(req,res)=>{
-  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser','quizapp', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser', 'index.html'));
 });
 
 app.post('/run', function(req, res) {
