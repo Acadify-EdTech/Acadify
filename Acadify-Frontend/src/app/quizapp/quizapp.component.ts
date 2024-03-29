@@ -26,21 +26,9 @@ declare global {
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
-export class QuizappComponent implements OnInit{
+export class QuizappComponent implements OnInit {
   timerText = '60:00';
-  // countdownTime = 60 * 60; // 60 minutes in seconds
-
-  // ngAfterViewInit() {
-  //   const countdown$ = timer(0, 1000)
-  //     .pipe(takeWhile(() => --this.countdownTime >= 0));
-
-  //   countdown$.subscribe(() => {
-  //     const minutes = Math.floor(this.countdownTime / 60);
-  //     const seconds = this.countdownTime % 60;
-
-  //     this.timerText = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-  //   });
-  // }
+  countdownTime = 60 * 60; // 60 minutes in seconds
 
   questions: any[] = []; // Initialize the 'questions' property with an empty array
   currentQuestionIndex = 0;
@@ -55,9 +43,18 @@ export class QuizappComponent implements OnInit{
     if (isPlatformBrowser(this.platformId)) {
       this.checkFullscreen();
     }
-    
   }
+  startTimer() {
+    const countdown$ = timer(0, 1000)
+      .pipe(takeWhile(() => --this.countdownTime >= 0));
 
+    countdown$.subscribe(() => {
+      const minutes = Math.floor(this.countdownTime / 60);
+      const seconds = this.countdownTime % 60;
+
+      this.timerText = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+    });
+  }
   @HostListener('document:fullscreenchange', [])
   onFullscreenChange() {
     this.checkFullscreen();
@@ -89,7 +86,7 @@ export class QuizappComponent implements OnInit{
       dialog.show();
     }
   }
-  
+
   showEndDialog() {
     const dialog = document.getElementById('confirmDialog') as any;
     if (dialog) {
