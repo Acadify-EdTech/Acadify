@@ -1,128 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/assets/js/bundle.js"></script>
+    <script src="/assets/js/jQuery.js"></script>
+    <script src="/assets/js/codeEditor.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="/assets/js/ace-builds/src/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script
+      src="/assets/js/ace-builds/src/ext-language_tools.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <link rel="stylesheet" href="/assets/css/codeEditor.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <title>Test</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="/assets/js/bundle.js"></script>
-  <script src="/assets/js/jQuery.js"></script>
-  <script src="/assets/js/codeEditor.js"></script>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <script src="/assets/js/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/assets/js/ace-builds/src/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
-  <link rel="stylesheet" href="/assets/css/codeEditor.css">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <title>Test</title>
-</head>
+  <body>
+    <div class="testContainer">
+      <div class="timerContainer">
+        <div class="timer"></div>
+      </div>
+      <div class="buttonContainer">
+        <md-filled-tonal-icon-button id="run"
+          ><md-icon
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+              /></svg></md-icon
+        ></md-filled-tonal-icon-button>
+        <md-filled-tonal-icon-button
+          ><md-icon
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              /></svg></md-icon
+        ></md-filled-tonal-icon-button>
+      </div>
+      <div class="submitButton">
+        <md-filled-tonal-button id="endTest">End Test</md-filled-tonal-button>
+      </div>
+      <md-dialog>
+        <div slot="headline">M3 Dialog title</div>
+        <form slot="content" id="form-id" method="dialog">
+          A simple dialog with free-form content in a custom element.
+        </form>
+        <div slot="actions">
+          <md-text-button form="form-id">Ok</md-text-button>
+        </div>
+      </md-dialog>
+      <div class="question">
+        <div id="questionBody"></div>
+        <script>
+          // script.js
+          window.onload = async function () {
+            const response = await fetch(
+              "http://localhost:4000/api/questions1"
+            );
+            const questions = await response.json();
 
-<body>
-  <div class="testContainer">
-    <div class="timerContainer">
-      <div class="timer"></div>
-    </div>
-    <div class="buttonContainer">
-      <md-filled-tonal-icon-button id="run"><md-icon><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-          </svg></md-icon></md-filled-tonal-icon-button>
-      <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-          </svg></md-icon></md-filled-tonal-icon-button>
-    </div>
-    <div class="submitButton">
-      <md-filled-tonal-button id="endTest">End Test</md-filled-tonal-button>
-    </div>
-    <md-dialog>
-      <div slot="headline">
-        M3 Dialog title
-      </div>
-      <form slot="content" id="form-id" method="dialog">
-        A simple dialog with free-form content in a custom element.
-      </form>
-      <div slot="actions">
-        <md-text-button form="form-id">Ok</md-text-button>
-      </div>
-    </md-dialog>
-    <div class="question">
-      <div class="questionBody">
-        <h1>Palindrome Checker</h1>
+            const questionBody = document.getElementById("questionBody");
+            questionBody.innerHTML = "";
 
-        <h2>Problem</h2>
-        <p>The program will determine whether a given string is a palindrome.</p>
-    
-        <h2>Language</h2>
-        <p>C++ (This solution can be easily adapted to other languages as well)</p>
-    
-        <h2>Input</h2>
-        <p>The input will be a string containing text, letters, numbers, or a combination of these.</p>
-    
-        <h2>Output</h2>
-        <p>The program will print a message indicating whether the input string is a palindrome or not.</p>
-    
-        <h2>Sample Input</h2>
-    
-        <table style="width:100%">
-          <tr>
-            <th>Input</th>
-            <th>Output</th>
-          </tr>
-          <tr>
-            <td>race car</td>
-            <td>race car is a palindrome</td>
-          </tr>
-          <tr>
-            <td>hello</td>
-            <td>hello is not a palindrome</td>
-          </tr>
-        </table>
-    
-        <h2>Constraints</h2>
-        <ul>
-            <li>The input string can be of any length.</li>
-            <li>The program should treat alphanumeric characters (letters and numbers) case-insensitively (e.g., "Race Car" is considered a palindrome).</li>
-            <li>Non-alphanumeric characters (punctuation, spaces, etc.) should be ignored.</li>
-        </ul>
+            questions.forEach((question) => {
+              const h1 = document.createElement("h1");
+              h1.textContent = question.title;
+              questionBody.appendChild(h1);
 
-        <h2>Test Cases</h2>
-        <table style="width:100%">
-          <tr>
-            <th>Input</th>
-            <th>Output</th>
-          </tr>
-          <tr>
-            <td>race car</td>
-            <td>race car is a palindrome</td>
-          </tr>
-          <tr>
-            <td>madam</td>
-            <td>madam is a palindrome</td>
-          </tr>
-          <tr>
-            <td>hello</td>
-            <td>hello is not a palindrome</td>
-          </tr>
-          <tr>
-            <td>12321</td>
-            <td>12321 is a palindrome</td>
-          </tr>
-          <tr>
-            <td>A man, a plan, a canal: Panama</td>
-            <td>A man, a plan, a canal: Panama is a palindrome (considering only alphanumeric characters)</td>
-          </tr>
-        </table>
+              const h2Problem = document.createElement("h2");
+              h2Problem.textContent = "Problem";
+              questionBody.appendChild(h2Problem);
+
+              const pProblem = document.createElement("p");
+              pProblem.textContent = question.problem;
+              questionBody.appendChild(pProblem);
+
+              // Add more elements for other parts of the question...
+            });
+          };
+        </script>
+        <div class="PrevNextButton">
+          <md-filled-tonal-icon-button
+            ><md-icon
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+                /></svg></md-icon
+          ></md-filled-tonal-icon-button>
+          <md-filled-tonal-icon-button
+            ><md-icon
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                /></svg></md-icon
+          ></md-filled-tonal-icon-button>
+        </div>
       </div>
-      <div class="PrevNextButton">
-        <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg></md-icon></md-filled-tonal-icon-button>
-        <md-filled-tonal-icon-button><md-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></md-icon></md-filled-tonal-icon-button>
-      </div>
-    </div>
-    <div class="editor-output">
-      <div class="editorContainer">
-        <div id="editor"><pre>#include &lt;iostream&gt;
+      <div class="editor-output">
+        <div class="editorContainer">
+          <div id="editor">
+            <pre>
+#include &lt;iostream&gt;
 #include &lt;cctype&gt; // for isalnum function
 #include &lt;string&gt;
 #include &lt;algorithm&gt; // for reverse function
@@ -164,36 +155,57 @@ int main() {
     }
 
     return 0;
-}</pre></div>
+}</pre
+            >
+          </div>
+        </div>
+
+        <div class="output">
+          <md-linear-progress four-color indeterminate></md-linear-progress>
+          <md-tabs>
+            <md-primary-tab id="testcases-tab" aria-controls="testcases-panel">
+              Test Cases
+            </md-primary-tab>
+            <md-primary-tab id="output-tab" aria-controls="output-panel">
+              Output
+            </md-primary-tab>
+            <md-primary-tab
+              id="custominput-tab"
+              aria-controls="custominput-panel"
+            >
+              Custom Input
+            </md-primary-tab>
+          </md-tabs>
+
+          <div
+            id="testcases-panel"
+            role="tabpanel"
+            aria-labelledby="testcases-tab"
+          ></div>
+          <div
+            id="output-panel"
+            role="tabpanel"
+            aria-labelledby="output-tab"
+            hidden
+          >
+            <div class="outputAnswer"></div>
+          </div>
+          <div
+            id="custominput-panel"
+            role="tabpanel"
+            aria-labelledby="custom-input-tab"
+            hidden
+          >
+            <md-outlined-text-field
+              type="textarea"
+              label="Custom Input"
+              rows="4"
+              id="customInput"
+            >
+            </md-outlined-text-field>
+          </div>
+        </div>
       </div>
-
-      <div class="output">
-        <md-linear-progress four-color indeterminate></md-linear-progress>
-        <md-tabs>
-          <md-primary-tab id="testcases-tab" aria-controls="testcases-panel">
-            Test Cases
-          </md-primary-tab>
-          <md-primary-tab id="output-tab" aria-controls="output-panel">
-            Output
-          </md-primary-tab>
-          <md-primary-tab id="custominput-tab" aria-controls="custominput-panel">
-            Custom Input
-          </md-primary-tab>
-        </md-tabs>
-
-        <div id="testcases-panel" role="tabpanel" aria-labelledby="testcases-tab">
-          
-        </div>
-        <div id="output-panel" role="tabpanel" aria-labelledby="output-tab" hidden>
-          <div class="outputAnswer"></div>
-        </div>
-        <div id="custominput-panel" role="tabpanel" aria-labelledby="custom-input-tab" hidden>
-          <md-outlined-text-field type="textarea" label="Custom Input" rows="4" id="customInput">
-          </md-outlined-text-field>
-        </div>
-      </div>
-  </div>
-  </div>
-</body>
-
+    </div>
+  </body>
 </html>
