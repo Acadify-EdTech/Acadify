@@ -52,6 +52,50 @@ document.addEventListener('DOMContentLoaded', function () {
             timerButton.textContent = '00:00';
         }
     }, 1000);
+
+
+    window.onload = async function () {
+      const response = await fetch("http://localhost:4000/api/questions1");
+      const questions = await response.json();
+
+      questions.forEach((question) => {
+        document.getElementById('title').textContent = question.title;
+        document.getElementById('description').textContent = question.description;
+        document.getElementById('language').textContent = question.language;
+        document.getElementById('inputDescription').textContent = question.inputDescription;
+        document.getElementById('outputDescription').textContent = question.outputDescription;
+
+        // Assuming examples and testCases are arrays of objects with 'input' and 'output' properties
+        const examplesTable = document.getElementById('examples');
+        question.examples.forEach((example) => {
+          const row = examplesTable.insertRow();
+          const cell1 = row.insertCell();
+          const cell2 = row.insertCell();
+          cell1.textContent = example.input;
+          cell2.textContent = example.output;
+        });
+
+        const testCasesTable = document.getElementById('testCases');
+        question.testCases.forEach((testCase, index) => {
+            const row = testCasesTable.insertRow();
+            const cell1 = row.insertCell();
+            const cell2 = row.insertCell();
+            cell1.textContent = testCase.input;
+            cell2.textContent = testCase.output;
+        });
+
+        // Assuming constraints is an array of strings
+        const constraintsList = document.getElementById('constraints');
+        question.constraints.forEach((constraint) => {
+          const li = document.createElement('li');
+          li.textContent = constraint;
+          constraintsList.appendChild(li);
+        });
+
+        editor.setValue(question.codePlaceholder, -1);
+
+      });
+    };
 });
 
 jQuery(document).ready(function () {

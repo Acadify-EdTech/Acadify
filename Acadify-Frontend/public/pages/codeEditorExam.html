@@ -61,35 +61,42 @@
         </div>
       </md-dialog>
       <div class="question">
-        <div id="questionBody"></div>
-        <script>
-          // script.js
-          window.onload = async function () {
-            const response = await fetch(
-              "http://localhost:4000/api/questions1"
-            );
-            const questions = await response.json();
-
-            const questionBody = document.getElementById("questionBody");
-            questionBody.innerHTML = "";
-
-            questions.forEach((question) => {
-              const h1 = document.createElement("h1");
-              h1.textContent = question.title;
-              questionBody.appendChild(h1);
-
-              const h2Problem = document.createElement("h2");
-              h2Problem.textContent = "Problem";
-              questionBody.appendChild(h2Problem);
-
-              const pProblem = document.createElement("p");
-              pProblem.textContent = question.problem;
-              questionBody.appendChild(pProblem);
-
-              // Add more elements for other parts of the question...
-            });
-          };
-        </script>
+        <div class="questionBody">
+          <h1 id="title"></h1>
+  
+          <h2>Problem</h2>
+          <p id="description"></p>
+      
+          <h2>Language</h2>
+          <p id="language"></p>
+      
+          <h2>Input</h2>
+          <p id="inputDescription"></p>
+      
+          <h2>Output</h2>
+          <p id="outputDescription"></p>
+      
+          <h2>Sample Input</h2>
+      
+          <table style="width:100%" id="examples">
+            <tr>
+              <th>Input</th>
+              <th>Output</th>
+            </tr>
+          </table>
+      
+          <h2>Constraints</h2>
+          <ul id="constraints">
+          </ul>
+  
+          <h2>Test Cases</h2>
+          <table style="width:100%" id="testCases">
+            <tr>
+              <th>Input</th>
+              <th>Output</th>
+            </tr>
+          </table>
+        </div>
         <div class="PrevNextButton">
           <md-filled-tonal-icon-button
             ><md-icon
@@ -111,53 +118,7 @@
       </div>
       <div class="editor-output">
         <div class="editorContainer">
-          <div id="editor">
-            <pre>
-#include &lt;iostream&gt;
-#include &lt;cctype&gt; // for isalnum function
-#include &lt;string&gt;
-#include &lt;algorithm&gt; // for reverse function
-
-using namespace std;
-
-bool is_palindrome(const string& s) {
-    // Removing non-alphanumeric characters and converting to lowercase
-    string clean_s;
-    for (char c : s) {
-        if (isalnum(c)) {
-            clean_s += tolower(c);
-        }
-    }
-    // Checking if the cleaned string is equal to its reverse
-    return equal(clean_s.begin(), clean_s.begin() + clean_s.size()/2, clean_s.rbegin());
-}
-
-void palindrome_checker(const string& input_str) {
-    if (is_palindrome(input_str)) {
-        cout << input_str << " is a palindrome" << endl;
-    } else {
-        cout << input_str << " is not a palindrome" << endl;
-    }
-}
-
-int main() {
-    // Test cases
-    string test_cases[] = {
-        "race car",
-        "madam",
-        "hello",
-        "12321",
-        "A man, a plan, a canal: Panama"
-    };
-
-    for (const string& test_case : test_cases) {
-        palindrome_checker(test_case);
-    }
-
-    return 0;
-}</pre
-            >
-          </div>
+          <div id="editor"></div>
         </div>
 
         <div class="output">
