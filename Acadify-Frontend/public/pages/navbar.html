@@ -29,7 +29,7 @@
                   <md-icon slot="end"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M400-280v-400l200 200-200 200Z"/></svg></md-icon>
                 </md-menu-item>
                 <md-menu slot="menu">
-                  <md-menu-item href="/codeEditorExam">
+                  <md-menu-item onclick="openCodeEditorExam()">
                     <div slot="headline">Code Editor Exam</div>
                   </md-menu-item>
                   <md-menu-item href="/codeEditorPractice">
@@ -76,6 +76,16 @@
           started</md-filled-button></li>
     </div>
   </div>
+
+  <script>
+  function openCodeEditorExam() {
+    const examWindow = window.open('/codeEditorExam', '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=' + screen.width + ', height=' + screen.height);
+    if (examWindow) {
+      examWindow.moveTo(0, 0);
+      examWindow.document.body.innerHTML += '<button onclick="document.documentElement.requestFullscreen()">Go Fullscreen</button>';
+    }
+  }
+  </script>
 </body>
 
 </html>

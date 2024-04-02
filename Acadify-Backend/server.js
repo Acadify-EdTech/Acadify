@@ -72,7 +72,23 @@ app.post('/run', function(req, res) {
       return res.status(400).send('No input provided');
     }
 
-    const run = spawn('./a.exe');
+    const os = require('os');
+    const spawn = require('child_process').spawn;
+
+    let executable;
+
+    if (os.platform() === 'win32') {
+      executable = './a.exe';
+    } else if (os.platform() === 'linux') {
+      executable = './a.out';
+    } else if (os.platform() === 'darwin') {
+      executable = './a.out'; // or whatever the executable is for macOS
+    } else {
+      console.error('Unsupported platform');
+      process.exit(1);
+    }
+
+    const run = spawn(executable);
     let output = '';
 
     // Write the custom input to the standard input of the child process
