@@ -20,7 +20,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon Acadify-Backend/server.js --watch public",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon Acadify-Backend/apiserver.js"
   },
   "author": "",
   "license": "ISC"
