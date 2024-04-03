@@ -19,7 +19,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon Acadify-Backend/server.js --watch public",
+    "start": "nodemon Acadify-Backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon Acadify-Backend/apiserver.js"
   },

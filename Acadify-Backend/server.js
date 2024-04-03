@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'public')));
-app.use(express.static(path.join(__dirname,'..', 'Acadify-Frontend/dist/acadify-frontend/browser')));
+app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend/dist/acadify-frontend/browser')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -36,16 +36,16 @@ app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'contact.html'));
 });
 
-app.get('/quizportal',(req,res)=>{
-  res.sendFile(path.join(__dirname,'..', 'Acadify-Frontend/dist/acadify-frontend/browser/index.html'));
+app.get('/quizportal', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend/dist/acadify-frontend/browser/index.html'));
 });
 
 //testing of dashboard
-app.get('/dashboard2',(req,res)=>{
+app.get('/dashboard2', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'dist', 'Acadify-Frontend', 'browser', 'index.html'));
 });
 
-app.post('/run', function(req, res) {
+app.post('/run', function (req, res) {
   const tempDir = 'temp';
   if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir);
@@ -88,6 +88,7 @@ app.post('/run', function(req, res) {
       process.exit(1);
     }
 
+    
     const run = spawn(executable);
     let output = '';
 
@@ -120,6 +121,67 @@ app.post('/run', function(req, res) {
   });
 });
 
+
+const { exec } = require('child_process');
+
+app.post('/submitCode', function (req, res) {
+  const tempDir = 'temp';
+  if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir);
+  }
+
+  const tempFilePath = path.join(tempDir, 'temp.cpp');
+  fs.writeFileSync(tempFilePath, req.body.code);
+
+  const compile = spawn('g++', ['-o', path.join(tempDir, 'temp'), tempFilePath]);
+  let compileError = '';
+
+  compile.stderr.on('data', function (data) {
+    compileError += data.toString();
+  });
+
+  compile.on('close', function (code) {
+    if (code !== 0) {
+      if (fs.existsSync(tempFilePath)) { // Check if temp.cpp file exists before deleting
+        fs.unlinkSync(tempFilePath); // Delete temp.cpp file
+      }
+      return res.send('Compilation error: ' + compileError);
+    }
+
+    const testCases = req.body.testCases;
+    const results = [];
+
+    const promises = testCases.map((testCase) => {
+      return new Promise((resolve, reject) => {
+        exec(`echo "${testCase.input}" | ./${path.join(tempDir, 'temp')}`, (error, stdout, stderr) => {
+          if (error) {
+            reject(error);
+          } else {
+            const output = stdout.toString();
+            const result = {
+              input: testCase.input,
+              expectedOutput: testCase.output,
+              output: output,
+              result: output.trim() === testCase.output.trim() ? 'Passed' : 'Failed'
+            };
+            resolve(result);
+          }
+        });
+      });
+    });
+
+    Promise.all(promises)
+      .then((results) => {
+        if (fs.existsSync(tempFilePath)) { // Check if temp.cpp file exists before deleting
+          fs.unlinkSync(tempFilePath); // Delete temp.cpp file
+        }
+        res.send(results);
+      })
+      .catch((error) => {
+        res.send('Error: ' + error);
+      });
+  });
+});
 // Add more routes for other HTML files as needed
 
 // Start the server

@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector("md-tabs").activeTabIndex = 1;
     });
 
+    document.getElementById("submit").addEventListener('click', (event) => {
+        // Switch to the output tab
+        document.querySelector("md-tabs").activeTabIndex = 0;
+    });
+
     // Get the md-outlined-button element
     var timerButton = document.querySelector('.timer');
 
@@ -54,28 +59,51 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000);
 
 
-    window.onload = async function () {
-      const response = await fetch("http://localhost:4000/api/questions1");
-      const questions = await response.json();
+    // Current question index
+    let currentQuestionIndex = 0;
 
-      questions.forEach((question) => {
+    // List of questions
+    let questions = [];
+
+    let userCode = [];
+
+    window.onload = async function () {
+        const response = await fetch("http://localhost:4000/api/questions1");
+        questions = await response.json();
+
+        userCode = new Array(questions.length).fill('');
+
+        // Display the first question
+        displayQuestion(currentQuestionIndex);
+    };
+
+    function displayQuestion(index) {
+        const question = questions[index];
+
         document.getElementById('title').textContent = question.title;
         document.getElementById('description').textContent = question.description;
         document.getElementById('language').textContent = question.language;
         document.getElementById('inputDescription').textContent = question.inputDescription;
         document.getElementById('outputDescription').textContent = question.outputDescription;
 
-        // Assuming examples and testCases are arrays of objects with 'input' and 'output' properties
+        // Display examples and test cases
+        
         const examplesTable = document.getElementById('examples');
+        while (examplesTable.rows.length > 1) {
+            examplesTable.deleteRow(1);
+        }
         question.examples.forEach((example) => {
-          const row = examplesTable.insertRow();
-          const cell1 = row.insertCell();
-          const cell2 = row.insertCell();
-          cell1.textContent = example.input;
-          cell2.textContent = example.output;
+            const row = examplesTable.insertRow();
+            const cell1 = row.insertCell();
+            const cell2 = row.insertCell();
+            cell1.textContent = example.input;
+            cell2.textContent = example.output;
         });
 
         const testCasesTable = document.getElementById('testCases');
+        while (testCasesTable.rows.length > 1) {
+            testCasesTable.deleteRow(1);
+        }
         question.testCases.forEach((testCase, index) => {
             const row = testCasesTable.insertRow();
             const cell1 = row.insertCell();
@@ -84,18 +112,111 @@ document.addEventListener('DOMContentLoaded', function () {
             cell2.textContent = testCase.output;
         });
 
-        // Assuming constraints is an array of strings
-        const constraintsList = document.getElementById('constraints');
-        question.constraints.forEach((constraint) => {
-          const li = document.createElement('li');
-          li.textContent = constraint;
-          constraintsList.appendChild(li);
+        const testCaseTable = document.getElementById('testcaseTable');
+        while (testCaseTable.rows.length > 1) {
+            testCaseTable.deleteRow(1);
+        }
+        question.testCases.forEach((testCase, index) => {
+            const row = testCaseTable.insertRow();
+            const cell1 = row.insertCell();
+            const cell2 = row.insertCell();
+            const cell3 = row.insertCell();
+            const cell4 = row.insertCell();
+            cell1.textContent = testCase.input;
+            cell2.textContent = testCase.output;
+            cell3.textContent = "";
+            cell4.textContent = ""; 
         });
 
-        editor.setValue(question.codePlaceholder, -1);
+        // Clear previous constraints
+        document.getElementById('constraints').innerHTML = '';
 
-      });
-    };
+        // Display constraints
+        const constraintsList = document.getElementById('constraints');
+        question.constraints.forEach((constraint) => {
+            const li = document.createElement('li');
+            li.textContent = constraint;
+            constraintsList.appendChild(li);
+        });
+
+        const readOnlyCode = question.codePlaceholder;
+        let userCodeForQuestion = userCode[index];
+
+        if (!userCodeForQuestion) {
+            userCodeForQuestion = readOnlyCode;
+            userCode[index] = userCodeForQuestion;
+        }
+
+        editor.setValue(userCodeForQuestion, -1);
+    }
+
+    // Previous button
+    document.getElementById('prevButton').addEventListener('click', function () {
+        if (currentQuestionIndex > 0) {
+            // Save user's code
+            userCode[currentQuestionIndex] = editor.getValue();
+
+            currentQuestionIndex--;
+            displayQuestion(currentQuestionIndex);
+        }
+    });
+
+    // Next button
+    document.getElementById('nextButton').addEventListener('click', function () {
+        if (currentQuestionIndex < questions.length - 1) {
+            // Save user's code
+            userCode[currentQuestionIndex] = editor.getValue();
+
+            currentQuestionIndex++;
+            displayQuestion(currentQuestionIndex);
+        }
+    });
+
+    document.getElementById('submit').addEventListener('click', async function () {
+        const code = ace.edit("editor").getValue();
+        const testCases = questions[currentQuestionIndex].testCases;
+
+        // Show the progress bar
+        document.getElementById('linearProgress').style.display = 'block';
+
+        const response = await fetch('/submitCode', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ code: code, testCases: testCases }),
+        });
+
+        const results = await response.json();
+
+        // Hide the progress bar
+        document.getElementById('linearProgress').style.display = 'none';
+
+        const table = document.getElementById('testcaseTable');
+
+        // Clear the table
+        while (table.rows.length > 1) {
+            table.deleteRow(1);
+        }
+
+        // Display the results in the table
+        for (let result of results) {
+            const row = table.insertRow();
+            const cell1 = row.insertCell();
+            const cell2 = row.insertCell();
+            const cell3 = row.insertCell();
+            const cell4 = row.insertCell();
+            cell1.textContent = result.input;
+            cell2.textContent = result.expectedOutput;
+            cell3.textContent = result.output;
+            if (result.result === 'Passed') {
+                cell4.classList.add('passed');
+            } else if (result.result === 'Failed') {
+                cell4.classList.add('failed');
+            }
+            cell4.textContent = result.result;
+        }
+    });
 });
 
 jQuery(document).ready(function () {
