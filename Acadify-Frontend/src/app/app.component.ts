@@ -1,13 +1,15 @@
-import { Component, inject, Signal, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, Signal, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild, Renderer2} from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import '@material/web/all';
+
+import { CommonModule } from '@angular/common';
 import { QuizappComponent } from './quizapp/quizapp.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SanitizeHtmlPipe } from './quizapp/sanitize-html.pipe';
+
 
 
 @Component({
@@ -18,6 +20,7 @@ import { SanitizeHtmlPipe } from './quizapp/sanitize-html.pipe';
   styleUrl: './app.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 
 export class AppComponent {
   showButton = true;
