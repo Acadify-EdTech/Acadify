@@ -217,6 +217,12 @@ document.addEventListener('DOMContentLoaded', function () {
             cell4.textContent = result.result;
         }
     });
+
+    // Switch functionality
+    document.querySelector('md-switch').addEventListener('change', function() {
+        document.body.classList.toggle('dark');
+        document.body.classList.toggle('light');
+    });
 });
 
 jQuery(document).ready(function () {

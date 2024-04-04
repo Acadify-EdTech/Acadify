@@ -61,6 +61,11 @@
     --theme-color-10: rgb(115, 206, 138);
     --theme-color-11: var(--theme-color-6);
     --theme-color-12: var(--theme-color-10);
+
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+
+    transition: 0.1s;
 }
 
 .light{
@@ -123,10 +128,15 @@
   --theme-color-6: #899000;
   --theme-color-7: #87691b;
   --theme-color-8: rgb(211, 0, 0);
-  --theme-color-9: rgb(0, 177, 0);
+  --theme-color-9: rgb(0, 136, 0);
   --theme-color-10: rgb(0, 129, 65);
   --theme-color-11: var(--theme-color-6);
   --theme-color-12: var(--theme-color-10);
+
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+
+  transition: 0.1s;
 }
 
 :root {
@@ -153,8 +163,6 @@ md-primary-tab{
 }
 
 body {
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-background);
     font-family: var(--md-ref-typeface-mono);
 }
 
@@ -290,6 +298,11 @@ md-linear-progress {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+md-switch {
+    margin: 5px 5px;
+    --md-icon-size: 16px;
 }
 
 .userContainer {
