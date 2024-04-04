@@ -1,42 +1,49 @@
 const express = require('express');
 const cors = require('cors');
-const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/quizdb');
+const compression = require('compression');
 const app = express();
 const port = process.env.PORT || 4000;
+
+app.use(compression());
 
 app.use(cors());
 app.use(bodyParser.json());
 
+const conn1 = mongoose.createConnection('mongodb://localhost:27017/quizdb');
+const conn2 = mongoose.createConnection('mongodb://localhost:27017/CodeDB');
+
+conn1.on('open', () => {
+    console.log('Connection 1 to MongoDB established...');
+});
+
+conn1.on('error', (err) => {
+    console.log(err);
+});
+
+conn2.on('open', () => {
+    console.log('Connection 2 to MongoDB established...');
+});
+
+conn2.on('error', (err) => {
+    console.log(err);
+});
+const questionSchema = new mongoose.Schema({}, { strict: false }); // Use a non-strict schema to allow any structure
+const Question = conn1.model('Question', questionSchema, 'questions'); // The 'questions' collection
+
 app.get('/api/questions', async (req, res) => {
-    const client = new MongoClient('mongodb://localhost:27017');
-    await client.connect();
-    const db = client.db('quizdb');
-    const questions = await db.collection('questions').find().toArray();
+    const questions = await Question.find({});
     res.json(questions);
-    client.close();
 });
 
-let activeUsers = {};
+const questionSchema1 = new mongoose.Schema({}, { strict: false }); // Use a non-strict schema to allow any structure
+const Question1 = conn2.model('Question1', questionSchema1, 'sample'); // The 'sample' collection
 
-app.post('/api/heartbeat', (req, res) => {
-    const userId = req.body.userId;
-    activeUsers[userId] = Date.now();
-    res.status(200).json({ message: 'Heartbeat received' });
+app.get('/api/questions1', async (req, res) => {
+    const questions = await Question1.find({});
+    res.json(questions);
 });
-
-// Check every 10 seconds for users who haven't sent a heartbeat recently
-setInterval(() => {
-    const now = Date.now();
-    for (let userId in activeUsers) {
-        if (now - activeUsers[userId] > 15000) {
-            delete activeUsers[userId];
-        }
-    }
-}, 10000);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
