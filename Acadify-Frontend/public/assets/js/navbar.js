@@ -8,11 +8,9 @@ jQuery(document).ready(function() {
         if (menuDiv.width() === 0) {
             menuDiv.width('100%');
             Header.css('background-color', 'white');
-            toggleIconSpan.text('close');
         } else {
             menuDiv.width(0);
             Header.css('background-color', 'var(--md-sys-color-surface-container)');
-            toggleIconSpan.text('menu');
         }
     });
 

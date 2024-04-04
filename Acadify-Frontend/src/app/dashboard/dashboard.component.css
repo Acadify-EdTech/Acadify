@@ -294,7 +294,7 @@
 }
 
 .toggleButtonContainer md-icon-button {
-  --md-icon-button-icon-size: 20px;
+  --md-icon-button-icon-size: 28px;
   --md-icon-button-icon-color: var(--md-sys-color-primary);
   --md-icon-button-container-color: var(--md-sys-color-surface-container-highest);
   --md-icon-button-selected-icon-color: var(--md-sys-color-primary);
