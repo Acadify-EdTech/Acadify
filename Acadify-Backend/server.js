@@ -3,11 +3,14 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const { spawn } = require('child_process');
 const fs = require('fs');
+const compression = require('compression');
+
 
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(compression());
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend', 'public')));
 app.use(express.static(path.join(__dirname, '..', 'Acadify-Frontend/dist/acadify-frontend/browser')));

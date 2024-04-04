@@ -2,8 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const compression = require('compression');
 const app = express();
 const port = process.env.PORT || 4000;
+
+app.use(compression());
 
 app.use(cors());
 app.use(bodyParser.json());

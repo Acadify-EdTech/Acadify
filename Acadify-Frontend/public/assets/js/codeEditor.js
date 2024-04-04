@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('outputDescription').textContent = question.outputDescription;
 
         // Display examples and test cases
-        
+
         const examplesTable = document.getElementById('examples');
         while (examplesTable.rows.length > 1) {
             examplesTable.deleteRow(1);
@@ -116,17 +116,43 @@ document.addEventListener('DOMContentLoaded', function () {
         while (testCaseTable.rows.length > 1) {
             testCaseTable.deleteRow(1);
         }
-        question.testCases.forEach((testCase, index) => {
-            const row = testCaseTable.insertRow();
-            const cell1 = row.insertCell();
-            const cell2 = row.insertCell();
-            const cell3 = row.insertCell();
-            const cell4 = row.insertCell();
-            cell1.textContent = testCase.input;
-            cell2.textContent = testCase.output;
-            cell3.textContent = "";
-            cell4.textContent = ""; 
-        });
+
+        const results = testCaseResults[index];
+        if (results) {
+            // Display the stored results
+            for (let result of results) {
+                const row = testCaseTable.insertRow();
+                const cell1 = row.insertCell();
+                const cell2 = row.insertCell();
+                const cell3 = row.insertCell();
+                const cell4 = row.insertCell();
+                cell1.textContent = result.input;
+                cell2.textContent = result.expectedOutput;
+                cell3.textContent = result.output;
+                if (result.result === 'Passed') {
+                    cell4.classList.add('passed');
+                } else if (result.result === 'Failed') {
+                    cell4.classList.add('failed');
+                }
+                cell4.textContent = result.result;
+            }
+        } else {
+            const testCaseTable = document.getElementById('testcaseTable');
+            while (testCaseTable.rows.length > 1) {
+                testCaseTable.deleteRow(1);
+            }
+            question.testCases.forEach((testCase, index) => {
+                const row = testCaseTable.insertRow();
+                const cell1 = row.insertCell();
+                const cell2 = row.insertCell();
+                const cell3 = row.insertCell();
+                const cell4 = row.insertCell();
+                cell1.textContent = testCase.input;
+                cell2.textContent = testCase.output;
+                cell3.textContent = "";
+                cell4.textContent = ""; 
+            });
+        }
 
         // Clear previous constraints
         document.getElementById('constraints').innerHTML = '';
@@ -171,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
             displayQuestion(currentQuestionIndex);
         }
     });
-
+    let testCaseResults = [];
     document.getElementById('submit').addEventListener('click', async function () {
         const code = ace.edit("editor").getValue();
         const testCases = questions[currentQuestionIndex].testCases;
@@ -188,6 +214,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         const results = await response.json();
+        // Store the results
+        testCaseResults[currentQuestionIndex] = results;
 
         // Hide the progress bar
         document.getElementById('linearProgress').style.display = 'none';
@@ -219,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Switch functionality
-    document.querySelector('md-switch').addEventListener('change', function() {
+    document.querySelector('md-switch').addEventListener('change', function () {
         document.body.classList.toggle('dark');
         document.body.classList.toggle('light');
     });

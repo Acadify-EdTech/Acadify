@@ -4,16 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/assets/js/bundle.js"></script>
-  <script src="/assets/js/jQuery.js"></script>
-  <script src="/assets/js/codeEditor.js"></script>
+  <script src="/assets/js/bundle.js" defer></script>
+  <script src="/assets/js/jQuery.js" defer></script>
+  <script src="/assets/js/codeEditor.js" defer></script>
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <script src="/assets/js/ace-builds/src/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script src="/assets/js/ace-builds/src/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/assets/js/ace-builds/src/ace.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="/assets/js/ace-builds/src/ext-language_tools.js" type="text/javascript" charset="utf-8" defer></script>
   <link rel="stylesheet" href="/assets/css/codeEditor.css" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <title>Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Test</title>
 </head>
 
 <body class="dark">
@@ -132,7 +133,7 @@
           </md-primary-tab>
         </md-tabs>
 
-        <div id="testcases-panel" role="tabpanel" aria-labelledby="testcases-tab" style="padding: 0 10px;">
+        <div id="testcases-panel" role="tabpanel" aria-labelledby="testcases-tab" style="padding: 0 10px 10px;">
           <table id="testcaseTable">
             <tr>
               <th>Input</th>
