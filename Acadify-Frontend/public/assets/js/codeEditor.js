@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let userCode = [];
 
     window.onload = async function () {
-        const response = await fetch("https://bh0gs0nl-4000.inc1.devtunnels.ms/api/questions1");
+        const response = await fetch("http://localhost:4000/api/questions1");
         questions = await response.json();
 
         userCode = new Array(questions.length).fill('');
@@ -197,6 +197,8 @@ document.addEventListener('DOMContentLoaded', function () {
             displayQuestion(currentQuestionIndex);
         }
     });
+
+    // Submit functionality
     let testCaseResults = [];
     document.getElementById('submit').addEventListener('click', async function () {
         const code = ace.edit("editor").getValue();
