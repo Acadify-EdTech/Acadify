@@ -1,6 +1,15 @@
-md-filled-button {
+md-filled-button.button1 {
     margin: 50px;
     position: absolute;
     z-index: -1;
+    top: 0;
+    left: 0;
 }
 
+md-filled-button.button2 {
+    margin: 50px;
+    position: absolute;
+    z-index: -1;
+    top: 50px;
+    left: 0;
+}
