@@ -11,8 +11,8 @@ app.use(compression());
 app.use(cors());
 app.use(bodyParser.json());
 
-const conn1 = mongoose.createConnection('mongodb://localhost:27017/quizdb');
-const conn2 = mongoose.createConnection('mongodb://localhost:27017/CodeDB');
+const conn1 = mongoose.createConnection('mongodb+srv://harshitshukla:945252786@acadify.zsiyyca.mongodb.net/quizDB');
+const conn2 = mongoose.createConnection('mongodb+srv://harshitshukla:945252786@acadify.zsiyyca.mongodb.net/codeDB');
 
 conn1.on('open', () => {
     console.log('Connection 1 to MongoDB established...');
@@ -38,7 +38,7 @@ app.get('/api/questions', async (req, res) => {
 });
 
 const questionSchema1 = new mongoose.Schema({}, { strict: false }); // Use a non-strict schema to allow any structure
-const Question1 = conn2.model('Question1', questionSchema1, 'sample'); // The 'sample' collection
+const Question1 = conn2.model('Question1', questionSchema1, 'questions'); // The 'sample' collection
 
 app.get('/api/questions1', async (req, res) => {
     const questions = await Question1.find({});
