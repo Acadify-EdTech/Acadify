@@ -1,0 +1,38 @@
+<div class="signupContainer light">
+    <div class="mainContent">
+        <div class="leftContainer">
+            <div class="logoContainer">
+                <div class="logoImage">
+                    <div class="logoSquare">
+                        <span class="material-symbols-outlined">
+                            import_contacts
+                        </span>
+                    </div>
+                </div>
+                <div class="logoText">Acadify</div>
+            </div>
+
+            <div class="heading">
+                Login to Your Account
+            </div>
+
+            <div class="subText">
+                New User? <a routerLink="/signup"> SignUp</a>
+            </div>
+        </div>
+
+        <div class="rightContainer">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                <input name="email" ngModel type="text" placeholder="Email or username">
+                <div class="password-container">
+                    <input name="password" ngModel [type]="hidePassword ? 'password' : 'text'" placeholder="Password">
+                    <span class="material-symbols-outlined password-icon" (click)="hidePassword = !hidePassword">
+                        {{hidePassword ? 'visibility' : 'visibility_off'}}
+                    </span>
+                </div>
+                <div class="forgetContainer">
+                 <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>

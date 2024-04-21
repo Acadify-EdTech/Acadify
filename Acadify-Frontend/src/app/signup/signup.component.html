@@ -1,0 +1,104 @@
+<div class="signupContainer light">
+    <div class="mainContent">
+        <div class="leftContainer" *ngIf="step === 1">
+            <div class="logoContainer">
+                <div class="logoImage">
+                    <div class="logoSquare">
+                        <span class="material-symbols-outlined">
+                            import_contacts
+                        </span>
+                    </div>
+                </div>
+                <div class="logoText">Acadify</div>
+            </div>
+
+            <div class="heading">
+                Create your account.
+            </div>
+
+            <div class="subText">
+                Already have an account? <a routerLink="/login"> Login</a>
+            </div>
+        </div>
+
+        <div class="rightContainer" *ngIf="step === 1">
+            <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+                <input name="firstName" ngModel #firstName="ngModel" type="text" placeholder="First Name" class="firstName" required>
+                <input name="lastName" ngModel #lastName="ngModel" type="text" placeholder="Last Name" class="lastName" required>
+                <input name="username" ngModel #username="ngModel" type="text" placeholder="Username" required>
+                <div class="password-container">
+                    <input name="password" ngModel #password="ngModel" [type]="hidePassword ? 'password' : 'text'"
+                        placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" required>
+                    <span class="material-symbols-outlined password-icon" (click)="hidePassword = !hidePassword">
+                        {{hidePassword ? 'visibility' : 'visibility_off'}}
+                    </span>
+                </div>
+                <p *ngIf="password.invalid && (password.dirty || password.touched)" style="color: rgb(150, 24, 24); font-size: 13px;">
+                    Password must contain at least one number, one uppercase letter, one lowercase letter, one special character and be at least 8 characters long.
+                </p>
+                <input name="confirmPassword" ngModel #confirmPassword="ngModel" type="password"
+                placeholder="Confirm Password" required>
+            <p *ngIf="!passwordsMatch" style="color: rgb(150, 24, 24); font-size: 13px;">Passwords do not match.</p>
+                <p *ngIf="formSubmitted && !signupForm.valid" style="color: rgb(150, 24, 24); font-size: 13px;">*Please fill out all fields.</p>
+                <button type="submit">Next</button>
+            </form>
+        </div>
+
+        <!-- Step 2: OTP Verification -->
+        <div class="leftContainer" *ngIf="step === 2">
+            <div class="logoContainer">
+                <div class="logoImage">
+                    <div class="logoSquare">
+                        <span class="material-symbols-outlined">
+                            import_contacts
+                        </span>
+                    </div>
+                </div>
+                <div class="logoText">Acadify</div>
+            </div>
+
+            <div class="heading">
+                Verify your email.
+            </div>
+
+            <div class="subText">
+                Already have an account? <a routerLink="/login"> Login</a>
+            </div>
+        </div>
+        <div class="rightContainer" *ngIf="step === 2">
+            <form #otpForm="ngForm" (ngSubmit)="onGetOtp(otpForm)">
+                <input name="email" ngModel #email="ngModel" type="email" placeholder="Email" required>
+                <p *ngIf="formSubmitted && email.invalid" style="color: rgb(150, 24, 24); font-size: 13px;">Email is required.</p>
+                <button type="submit" (click)="getOtp(email.value)">Get OTP</button>
+            </form>
+        </div>
+
+        <!-- step 3 -->
+        <div class="leftContainer" *ngIf="step === 3">
+            <div class="logoContainer">
+                <div class="logoImage">
+                    <div class="logoSquare">
+                        <span class="material-symbols-outlined">
+                            import_contacts
+                        </span>
+                    </div>
+                </div>
+                <div class="logoText">Acadify</div>
+            </div>
+
+            <div class="heading">
+                Verify your email.
+            </div>
+
+            <div class="subText">
+                Already have an account? <a routerLink="/login"> Login</a>
+            </div>
+        </div>
+        <div class="rightContainer" *ngIf="step === 3">
+            <form #otpForm="ngForm" (ngSubmit)="onSubmitOtp(otpForm)">
+                <input name="otp" ngModel #otp="ngModel" type="password" placeholder="Enter OTP">
+                <button type="submit" [disabled]="!otpForm.valid">Verify</button>
+            </form>
+        </div>
+    </div>
+</div>

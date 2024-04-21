@@ -1,0 +1,177 @@
+.signupContainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--typeface-sans);
+    background-color: var(--md-sys-color-surface-container);
+}
+
+.mainContent{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width: 900px;
+    height: auto;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 20px;
+    padding: 25px 30px 40px 30px;
+}
+
+.leftContainer, .rightContainer {
+    width: calc(50% - 10px);
+}
+
+.heading{
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-background);
+}
+
+
+.logoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--md-sys-color-on-background);
+    margin-bottom: 7px;
+}
+
+.logoText{
+    margin-left: 3px;
+    font-family: var(--typeface-mono);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.logoSquare{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    width: 19px;
+    height: 15px;
+    margin-right: 2px;
+}
+
+.logoSquare span{
+    font-size: 15px;
+}
+
+.leftContainer{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.subText{
+    font-size: 15px;
+    color: var(--md-sys-color-on-background);
+    margin-top: 50px;
+}
+
+.subText a{
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+    margin-left: 2px;
+}
+
+.rightContainer form input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid hsl(0, 0%, 30%);
+    border-radius: 3px;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-background);
+    font-family: var(--typeface-mono);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.rightContainer input:focus {
+    outline: none;
+}
+
+.rightContainer form .firstName,.rightContainer form .lastName{
+    width: calc(50% - 5px);
+    margin-top: 20px;
+}
+
+.rightContainer form .firstName{
+    margin-right: 10px;
+}
+
+.rightContainer {
+    text-align: right;
+}
+
+.rightContainer button{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.rightContainer button:hover{
+    background-color: var(--md-sys-color-secondary);
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.password-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.rightContainer form .password-container input {
+    margin: 0;
+    width: 100%;
+}
+
+.rightContainer form .password-container span{
+    color: var(--md-sys-color-on-background);
+    user-select: none;
+}
+
+.rightContainer form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid hsl(0, 0%, 50%);
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--md-sys-color-on-background);
+    background-color: black;
+    appearance: none;
+    outline: none;
+    margin-top: 30px;
+}
+
+.rightContainer form select:focus {
+    border-color: #3fb553; /* Change this to the color you want when the select is focused */
+}
+
+
+.rightContainer form p{
+    font-size: 12px;
+    color: var(--md-sys-color-on-background);
+    margin-top: 10px;
+}
