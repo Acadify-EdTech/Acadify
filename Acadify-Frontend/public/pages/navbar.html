@@ -4,41 +4,10 @@
       <nav>
         <ul class="links navbarUL">
           <md-outlined-button class="navButton" href="/">Home</md-outlined-button>
-
-          <span style="position: relative">
-            <md-outlined-button id="root-anchor" class="navButton">Solutions</md-outlined-button>
-            <md-menu has-overflow id="root-menu" anchor="root-anchor">
-              <md-sub-menu>
-                <md-menu-item slot="item">
-                  <div slot="headline">Code Editor</div>
-                  <md-icon slot="end"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M400-280v-400l200 200-200 200Z"/></svg></md-icon>
-                </md-menu-item>
-                <md-menu slot="menu">
-                  <md-menu-item onclick="openCodeEditorExam()">
-                    <div slot="headline">Code Editor Exam</div>
-                  </md-menu-item>
-                  <md-menu-item href="/codeEditorPractice">
-                    <div slot="headline">Code Editor Practice</div>
-                  </md-menu-item>
-                </md-menu>
-              </md-sub-menu>
-              <md-menu-item>
-                <div slot="headline">Solution 2</div>
-              </md-menu-item>
-              <md-menu-item>
-                <div slot="headline">Solution 3</div>
-              </md-menu-item>
-            </md-menu>
-          </span>
-
-
-          <!--testing of quiz interface -->
-          <md-outlined-button class="navButton" href="/quizportal">Quiz</md-outlined-button>
-
-          <!--testing of dashboard-->
-          <md-outlined-button class="navButton" href="/dashboard2">Dashboard</md-outlined-button>
           <md-outlined-button class="navButton" href="/about">About</md-outlined-button>
           <md-outlined-button class="navButton" href="/contact">Contact</md-outlined-button>
+          <md-filled-tonal-button style="border: solid 1px var(--md-sys-color-outline);" href="/signup">Get Started</md-filled-tonal-button>
+          <md-outlined-button href="/login">Login</md-outlined-button>
         </ul>
         <div class="toggleBtn">
           <md-icon-button toggle>

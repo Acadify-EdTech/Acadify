@@ -8,7 +8,6 @@
     font-family: var(--md-ref-typeface-mono);
     --md-text-button-icon-size: 1.3rem;
 }
-
 .navbarContainer {
     margin-bottom: 90px;
     background-color: var(--md-sys-color-surface-container);
