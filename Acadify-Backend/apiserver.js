@@ -125,9 +125,10 @@ router.post('/api/user/signup', async (req, res) => {
     await user.save();
     res.json({ msg: 'User Created Successfully' });
 });
-router.get('/api/user/logout', (req, res) => {
+
+router.post('/api/user/logout', (req, res) => {
     // Delete the cookie
-    res.clearCookie('token');
+    res.clearCookie('token', { path: '/' });
     res.json({ msg: 'Logged out' });
 });
 
@@ -152,7 +153,7 @@ router.post('/api/user/signin', async (req, res) => {
     }
 });
 
-app.get('/api/user/checkAuth', (req, res) => {
+router.get('/api/user/checkAuth', (req, res) => {
     const token = req.cookies.token;
 
     if (!token) {
@@ -165,6 +166,22 @@ app.get('/api/user/checkAuth', (req, res) => {
     } catch (err) {
         console.error(err);
         return res.json({ isLoggedIn: false });
+    }
+});
+
+router.get('/api/check-token', (req, res) => {
+    const token = req.cookies.token; // Assuming the token is sent in a cookie
+
+    if (!token) {
+        return res.json({ valid: false });
+    }
+
+    try {
+        jwt.verify(token, 'YOUR_SECRET_KEY'); // Replace 'YOUR_SECRET_KEY' with your actual secret key
+        return res.json({ valid: true });
+    } catch (err) {
+        console.error(err);
+        return res.json({ valid: false });
     }
 });
 

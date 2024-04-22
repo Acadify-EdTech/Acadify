@@ -138,9 +138,10 @@
         </md-outlined-text-field>
       </div>
       <div class="profileSection">
-        <md-icon-button>
-          <md-icon (click)="logout()">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg>          </md-icon>
+        <md-icon-button (click)="logout()" toggle>
+          <md-icon>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg>          
+          </md-icon>
         </md-icon-button>
         <md-icon-button>
           <md-icon>
@@ -157,11 +158,14 @@
                 <div class="icon"> <i class="fa fa-ellipsis-h icon" aria-hidden="true"></i> </div>
             </div>
             <div class="title-row">
-                <h3> Communication  </h3>
+                <h3> Quiz App  </h3>
                 <div class="links"> <i class="fa fa-external-link icon" aria-hidden="true"></i> <a href="/quizapp"> Quiz App </a> </div>
             </div>
             <div class="desc-row">
-                <p> Communication skills involve listening, speaking, observing and empathising  xnoijoewio... </div>
+                <p>
+                  A quiz is a form of game or mind sport in which players attempt to answer questions correctly about a certain or variety of subjects.
+                </p>
+                </div>
             <div class="progress-row">
                 <p class="value-label" style="width:94%" data-value="94"></p>
                 <progress max="100" value="94" data-value="94"> 94% </progress>
@@ -183,11 +187,13 @@
                 <div class="icon"> <i class="fa fa-ellipsis-h icon" aria-hidden="true"></i> </div>
             </div>
             <div class="title-row">
-                <h3> JavaScript </h3>
+                <h3> Code Editor </h3>
                 <div class="links"> <i class="fa fa-external-link icon" aria-hidden="true"></i> <a href="/codeEditorExam"> Code Editor </a> </div>
             </div>
             <div class="desc-row">
-                <p> JavaScript is a high-level, often just-in-time compiled language that conforms to the... </div>
+                <p>
+                  A code editor is a text editor program designed specifically for editing source code of computer programs by programmers.
+                </p> </div>
             <div class="progress-row">
                 <p class="value-label" style="width:64%" data-value="64"></p>
                 <progress max="100" value="64" data-value="64"> 64% </progress>

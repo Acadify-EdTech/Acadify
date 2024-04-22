@@ -23,14 +23,15 @@ export class DashboardComponent {
       this.renderer.addClass(this.sidebar.nativeElement, 'close');
   }
 
-  logout(){
-    this.http.get('/api/user/logout').subscribe({
+  logout() {
+    console.log('hit');
+    this.http.post('http://localhost:3000/api/user/logout', {}).subscribe({
       next: (response: any) => {
-        if (response.msg == "Logged Out") {
+        if (response.msg == "Logged out") {
           this.router.navigate(['/login']);
         }
       },
-      error: error => {
+      error: (error: any) => {
         console.error(error);
       }
     });
