@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { Router } from '@angular/router';
 
 declare global {
   interface Document {
@@ -33,7 +34,7 @@ export class QuizappComponent implements OnInit {
   questions: any[] = []; // Initialize the 'questions' property with an empty array
   currentQuestionIndex = 0;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.http.get<any[]>('http://localhost:3000/api/questions').subscribe((data: any[]) => {
@@ -174,6 +175,6 @@ export class QuizappComponent implements OnInit {
   }
 
   endTest() {
-    window.close();
+    this.router.navigate(['/dashboard']);
   }
 }
