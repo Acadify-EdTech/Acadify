@@ -42,6 +42,9 @@ app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'contact.html'));
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Acadify-Frontend', 'public', 'pages', 'errorPage.html'));
+});
 
 
 app.post('/run', function (req, res) {
