@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let userCode = [];
 
     window.onload = async function () {
-        const response = await fetch("http://localhost:4000/api/questions1");
+        const response = await fetch("http://localhost:3000/api/questions1");
         questions = await response.json();
 
         userCode = new Array(questions.length).fill('');

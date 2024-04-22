@@ -66,7 +66,7 @@ export class SignupComponent {
         this.userData.email = email;
         this.setotp.email = email;
         this.http
-            .post('http://localhost:4000/api/user/getotp', body)
+            .post('http://localhost:3000/api/user/getotp', body)
             .subscribe((response: any) => {
                 this.state = response.msg;
             });
@@ -89,14 +89,14 @@ export class SignupComponent {
             this.setotp.method = 'signup';
             // Send a request to the server to verify the OTP
             this.http
-                .post('http://localhost:4000/api/user/verifyotp', this.setotp)
+                .post('http://localhost:3000/api/user/verifyotp', this.setotp)
                 .pipe(
                     switchMap((response: any) => {
                         console.log(response);
                         this.state = response.msg;
                         if (this.state == 'Verification Success') {
                             // If OTP verification is successful, make a POST request to /api/user/signup
-                            return this.http.post('http://localhost:4000/api/user/signup', this.userData);
+                            return this.http.post('http://localhost:3000/api/user/signup', this.userData);
                         } else {
                             // If OTP verification fails, throw an error
                             throw new Error('OTP verification failed');

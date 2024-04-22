@@ -7,14 +7,14 @@ const app = express();
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-
-const port = process.env.PORT || 4000;
-
+const cookieParser = require('cookie-parser');
+const router = express.Router();
 
 app.use(compression());
 app.use(cors());
-
+app.use(cookieParser());
 app.use(bodyParser.json());
+app.use('/', router);
 
 const conn = mongoose.createConnection('mongodb+srv://harshitshukla:945252786@acadify.zsiyyca.mongodb.net/Acadify');
 
@@ -29,7 +29,7 @@ conn.on('error', (err) => {
 const questionSchema = new mongoose.Schema({}, { strict: false }); // Use a non-strict schema to allow any structure
 const Question = conn.model('Question', questionSchema, 'Quiz'); // The 'Quiz' collection
 
-app.get('/api/questions', async (req, res) => {
+router.get('/api/questions', async (req, res) => {
     const questions = await Question.find({});
     res.json(questions);
 });
@@ -37,7 +37,7 @@ app.get('/api/questions', async (req, res) => {
 const questionSchema1 = new mongoose.Schema({}, { strict: false }); // Use a non-strict schema to allow any structure
 const Question1 = conn.model('Question1', questionSchema1, 'Code'); // The 'Code' collection
 
-app.get('/api/questions1', async (req, res) => {
+router.get('/api/questions1', async (req, res) => {
     const questions = await Question1.find({});
     res.json(questions);
 });
@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
 
 const User = conn.model('User', userSchema, 'User'); // The 'User' collection
 
-app.post('/api/user/getotp', async (req, res) => {
+router.post('/api/user/getotp', async (req, res) => {
     const { email } = req.body;
     // Generate OTP
     const otp = Math.floor(100000 + Math.random() * 900000);
@@ -101,7 +101,7 @@ app.post('/api/user/getotp', async (req, res) => {
 });
 
 // Route to verify OTP
-app.post('/api/user/verifyotp', async (req, res) => {
+router.post('/api/user/verifyotp', async (req, res) => {
     const { email, otp } = req.body;
     const user = await User.findOne({ email });
     console.log('OTP from request:', otp); // Add this line
@@ -114,8 +114,7 @@ app.post('/api/user/verifyotp', async (req, res) => {
 });
 
 // Route to sign up
-// Route to sign up
-app.post('/api/user/signup', async (req, res) => {
+router.post('/api/user/signup', async (req, res) => {
     const { firstName, lastName, username, email, educational_institute, password } = req.body;
     
     // Hash the password
@@ -126,8 +125,13 @@ app.post('/api/user/signup', async (req, res) => {
     await user.save();
     res.json({ msg: 'User Created Successfully' });
 });
+router.get('/api/user/logout', (req, res) => {
+    // Delete the cookie
+    res.clearCookie('token');
+    res.json({ msg: 'Logged out' });
+});
 
-app.post('/api/user/signin', async (req, res) => {
+router.post('/api/user/signin', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
 
@@ -137,6 +141,8 @@ app.post('/api/user/signin', async (req, res) => {
         if (validPassword) {
             // Generate a JWT
             const token = jwt.sign({ _id: user._id }, 'YOUR_SECRET_KEY');
+            // Store the JWT in a cookie
+            res.cookie('token', token, { httpOnly: true });
             res.json({ msg: 'Log In Success', token });
         } else {
             res.json({ msg: 'Invalid password' });
@@ -146,6 +152,20 @@ app.post('/api/user/signin', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+app.get('/api/user/checkAuth', (req, res) => {
+    const token = req.cookies.token;
+
+    if (!token) {
+        return res.json({ isLoggedIn: false });
+    }
+
+    try {
+        jwt.verify(token, 'YOUR_SECRET_KEY');
+        return res.json({ isLoggedIn: true });
+    } catch (err) {
+        console.error(err);
+        return res.json({ isLoggedIn: false });
+    }
 });
+
+module.exports = app;

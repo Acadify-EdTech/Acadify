@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,8 +14,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
-    loginVerifier = false;
+
+export class LoginComponent implements OnInit{
+  loginVerifier = false;
   hidePassword = true;
   body = {
     "username": "",
@@ -25,13 +26,26 @@ export class LoginComponent {
 
     constructor(private http: HttpClient, private router: Router) { }
 
+    ngOnInit() {
+      this.http.get('/api/user/checkAuth').subscribe({
+        next: (response: any) => {
+          if (response.isLoggedIn) {
+            this.router.navigate(['/dashboard']);
+          }
+        },
+        error: error => {
+          console.error(error);
+        }
+      });
+    }
+
     onSubmit(form: NgForm) {
         if (form.valid ) {
 
             this.body.username = form.value.email;
             this.body.password = form.value.password;
             this.http
-                .post('http://localhost:4000/api/user/signin', this.body)
+                .post('http://localhost:3000/api/user/signin', this.body)
                 .subscribe((response: any) => {       
                     this.state = response.msg;
                     if(this.state == "Log In Success"){
