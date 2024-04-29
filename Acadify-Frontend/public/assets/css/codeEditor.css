@@ -326,11 +326,11 @@ md-filled-tonal-icon-button {
 }
 
 .passed{
-    background-color: rgba(0, 128, 0, 0.2);
+    background-color: rgba(0, 192, 0, 0.548);
 }
 
 .failed{
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(255, 0, 0, 0.545);
 }
 .outputAnswer, .outputAnswer * {
     display: inline-block;
